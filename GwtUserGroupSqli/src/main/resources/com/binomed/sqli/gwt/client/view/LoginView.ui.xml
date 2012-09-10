@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui" >
+   <g:HTMLPanel>
+   		<g:HorizontalPanel width="100%">
+				<g:VerticalPanel width="95%">
+		            <b:Hero >
+		                <b:Heading size="3" >du blabla</b:Heading>
+		            </b:Hero>					
+				</g:VerticalPanel>
+				<b:Container width="50%">
+					<b:WellForm>
+			            <b:Heading size="3" >Connexion</b:Heading>
+						<b:ControlLabel>Login</b:ControlLabel>
+						<b:TextBox placeholder="votre email..."/>
+						<b:ControlLabel>Password</b:ControlLabel>
+						<b:TextBox placeholder="****"/>
+						<b:ControlLabel></b:ControlLabel>
+						<b:SubmitButton addStyleNames="btn">Connexion</b:SubmitButton>
+					</b:WellForm>
+				</b:Container>
+   		</g:HorizontalPanel>
+    </g:HTMLPanel>
+</ui:UiBinder>

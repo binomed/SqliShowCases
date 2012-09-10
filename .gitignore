@@ -1,0 +1,23 @@
+#################
+## Eclipse
+#################
+
+*.pydevproject         
+*.metadata
+GwtUserGroupSqli/bin/
+GwtUserGroupSqli/tmp/
+GwtUserGroupSqli/src/main/gwt-unitCache/
+GwtUserGroupSqli/src/main/webapp/GwtUserGroupSqli/
+GwtUserGroupSqli/src/main/webapp/WEB-INF/classes/
+GwtUserGroupSqli/src/main/webapp/WEB-INF/deploy/
+GwtUserGroupSqli/target/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+

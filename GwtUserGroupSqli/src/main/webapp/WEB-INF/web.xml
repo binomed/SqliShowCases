@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>sqliServlet</servlet-name>
+    <servlet-class>com.binomed.sqli.gwt.server.SqliServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>sqliServlet</servlet-name>
+    <url-pattern>/GwtUserGroupSqli/sqli</url-pattern>
+  </servlet-mapping>
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>GwtUserGroupSqli.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>
