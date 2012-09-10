@@ -11,4 +11,6 @@ public interface IClientFactory {
 
 	void registerMainPanel(AcceptsOneWidget mainPanel);
 
+	void showMessage(String message);
+
 }

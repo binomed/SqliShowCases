@@ -1,6 +1,5 @@
 package com.binomed.sqli.gwt.client.presenter;
 
-
-abstract interface Presenter {
+public abstract interface Presenter {
 
 }

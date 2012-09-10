@@ -1,5 +1,6 @@
 package com.binomed.sqli.gwt.client.view;
 
+import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.github.gwtbootstrap.client.ui.Modal;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -24,9 +25,12 @@ public class HomeView extends Composite implements //
 	@UiField
 	SimplePanel mainContent;
 
-	public HomeView() {
+	private final HomePresenter presenter;
+
+	public HomeView(HomePresenter presenter) {
 		// Initialization
 		initWidget(uiBinder.createAndBindUi(this));
+		this.presenter = presenter;
 	}
 
 	/*
@@ -35,15 +39,15 @@ public class HomeView extends Composite implements //
 
 	@UiHandler("aPropos")
 	public void onAProposClick(ClickEvent event) {
-		showDialog("A Propos");
+		presenter.eventClick("A Propos");
 	}
 
 	@UiHandler("support")
 	public void onSupportClick(ClickEvent event) {
-		showDialog("Support");
+		presenter.eventClick("Support");
 	}
 
-	private void showDialog(String content) {
+	public void showDialog(String content) {
 
 		modal.setTitle(content);
 		modal.show();

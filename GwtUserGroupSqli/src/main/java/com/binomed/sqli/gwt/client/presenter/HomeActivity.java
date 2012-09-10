@@ -1,47 +1,38 @@
 package com.binomed.sqli.gwt.client.presenter;
 
 import com.binomed.sqli.gwt.client.IClientFactory;
-import com.binomed.sqli.gwt.client.place.LoginPlace;
+import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.view.HomeView;
-import com.google.gwt.activity.shared.Activity;
-import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.gwt.user.client.ui.HasWidgets;
 
-public class HomeActivity implements Activity, Presenter {
+public class HomeActivity implements HomePresenter {
 
 	public interface Display {
 
 		AcceptsOneWidget registerMainPanel();
 
+		void showDialog(String source);
+
 	}
 
 	private final IClientFactory factory;
 
-	public HomeActivity(IClientFactory factory) {
+	private final Display view;
+
+	public HomeActivity(IClientFactory factory, HasWidgets panel) {
 		super();
 		this.factory = factory;
+		view = new HomeView(this);
+		panel.add((HomeView) view);
 	}
 
-	public String mayStop() {
-		// TODO Auto-generated method stub
-		return null;
+	public AcceptsOneWidget getMainPanel() {
+		return view.registerMainPanel();
 	}
 
-	public void onCancel() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onStop() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void start(AcceptsOneWidget panel, EventBus eventBus) {
-		HomeView view = new HomeView();
-		panel.setWidget(view);
-		factory.registerMainPanel(view.registerMainPanel());
-		factory.getPlaceControler().goTo(new LoginPlace());
+	public void eventClick(String source) {
+		view.showDialog(source);
 
 	}
 
