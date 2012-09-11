@@ -9,4 +9,9 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 @SuppressWarnings("serial")
 public class SqliServiceImpl extends RemoteServiceServlet implements SqliService {
 
+	public String testService() {
+		// long itemsCounts = MemcacheServiceFactory.getMemcacheService().getStatistics().getItemCount();
+		return "Hello Service ";
+	}
+
 }

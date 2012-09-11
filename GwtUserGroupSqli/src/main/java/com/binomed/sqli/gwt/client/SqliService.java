@@ -8,4 +8,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("sqli")
 public interface SqliService extends RemoteService {
+
+	String testService();
 }

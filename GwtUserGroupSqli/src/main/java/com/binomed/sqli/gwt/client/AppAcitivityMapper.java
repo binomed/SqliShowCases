@@ -1,6 +1,8 @@
 package com.binomed.sqli.gwt.client;
 
+import com.binomed.sqli.gwt.client.place.CreateUserPlace;
 import com.binomed.sqli.gwt.client.place.LoginPlace;
+import com.binomed.sqli.gwt.client.presenter.CreateUserActivity;
 import com.binomed.sqli.gwt.client.presenter.LoginActivity;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
@@ -18,6 +20,9 @@ public class AppAcitivityMapper implements ActivityMapper {
 	public Activity getActivity(Place place) {
 		if (place instanceof LoginPlace) {
 			return new LoginActivity(clientFactory);
+		}
+		if (place instanceof CreateUserPlace) {
+			return new CreateUserActivity(clientFactory);
 		}
 		return null;
 	}

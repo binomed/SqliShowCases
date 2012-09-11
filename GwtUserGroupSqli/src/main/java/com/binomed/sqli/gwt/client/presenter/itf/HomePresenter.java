@@ -7,6 +7,8 @@ public interface HomePresenter extends Presenter {
 
 	void eventClick(String source);
 
+	void brandClick();
+
 	AcceptsOneWidget getMainPanel();
 
 }

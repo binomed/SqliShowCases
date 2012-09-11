@@ -14,7 +14,7 @@
 
   <properties>
     <!-- Convenience property to set the GWT version -->
-    <gaeVersion>1.7.0</gaeVersion>
+    <!-- <gaeVersion>1.7.0</gaeVersion> -->
     <gwtVersion>2.5.0-rc1</gwtVersion>
     <!-- GWT needs at least java 1.5 -->
     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
@@ -40,6 +40,7 @@
 	    <artifactId>gwt-bootstrap</artifactId>
 	    <version>2.0.4.0</version>
 	</dependency>    
+	<!-- 
 	<dependency>
 	  <groupId>net.kindleit</groupId>
 	  <artifactId>gae-runtime</artifactId>
@@ -52,6 +53,7 @@
 	    </exclusion>
 	   </exclusions>
 	</dependency>
+	  -->
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-servlet</artifactId>
@@ -110,10 +112,13 @@
           gwt-maven-plugin documentation at codehaus.org -->
         <configuration>
           <runTarget>GwtUserGroupSqli.html</runTarget>
+          <generateDirectory>${project.build.directory}/src/main/java</generateDirectory>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
           <i18nMessagesBundle>com.binomed.sqli.gwt.client.Messages</i18nMessagesBundle>
+          <!-- 
           <appEngineVersion>${gaeVersion}</appEngineVersion>
           <server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+           -->
         </configuration>
       </plugin>
 

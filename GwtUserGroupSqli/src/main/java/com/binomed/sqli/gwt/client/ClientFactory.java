@@ -1,7 +1,5 @@
 package com.binomed.sqli.gwt.client;
 
-import java.util.logging.Logger;
-
 import com.binomed.sqli.gwt.client.place.LoginPlace;
 import com.binomed.sqli.gwt.client.presenter.HomeActivity;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
@@ -17,7 +15,7 @@ import com.google.web.bindery.event.shared.EventBus;
 
 public class ClientFactory implements IClientFactory {
 
-	private static final Logger LOGGER = Logger.getLogger("ClientFacotry");
+	// private static final Logger LOGGER = Logger.getLogger("ClientFacotry");
 
 	private final EventBus eventBus = new SimpleEventBus();
 	private final SqliServiceAsync rpcService;

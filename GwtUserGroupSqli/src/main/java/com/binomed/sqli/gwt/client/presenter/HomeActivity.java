@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client.presenter;
 
 import com.binomed.sqli.gwt.client.IClientFactory;
+import com.binomed.sqli.gwt.client.place.LoginPlace;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.view.HomeView;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
@@ -33,6 +34,11 @@ public class HomeActivity implements HomePresenter {
 
 	public void eventClick(String source) {
 		view.showDialog(source);
+
+	}
+
+	public void brandClick() {
+		factory.getPlaceControler().goTo(new LoginPlace());
 
 	}
 

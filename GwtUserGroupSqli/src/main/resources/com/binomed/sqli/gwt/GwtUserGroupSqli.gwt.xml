@@ -2,6 +2,9 @@
 <module rename-to='GwtUserGroupSqli'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User' />
+  <inherits name="com.google.gwt.http.HTTP" />
+  <inherits name="com.google.gwt.i18n.I18N"/>
+  <inherits name="com.google.gwt.resources.Resources" />
 
   <!-- We need the JUnit module in the main module,               -->
   <!-- otherwise eclipse complains (Google plugin bug?)           -->
@@ -13,12 +16,15 @@
   <inherits name='com.google.gwt.user.theme.standard.Standard' />
   <inherits name="com.google.gwt.place.Place" />
   <inherits name="com.google.gwt.activity.Activity" />
-  <inherits name="com.google.gwt.logging.Logging"/>
+  <!-- <inherits name="com.google.gwt.logging.Logging"/>		  -->
   <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 
   <!-- Other module inherits                                      -->
   <inherits name="com.github.gwtbootstrap.Bootstrap"/>
+  
+  <extend-property name="locale" values="en" />
+  <!-- <extend-property name="locale" values="fr" />-->
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.binomed.sqli.gwt.client.GwtUserGroupSqli' />
@@ -27,6 +33,12 @@
    <replace-with class="com.binomed.sqli.gwt.client.ClientFactory">
    <when-type-is class="com.binomed.sqli.gwt.client.IClientFactory"/>
    </replace-with>
+   
+   <!-- Super Dev Mode -->
+   <!-- 
+  <add-linker name="xsiframe"/>
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+    -->
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />

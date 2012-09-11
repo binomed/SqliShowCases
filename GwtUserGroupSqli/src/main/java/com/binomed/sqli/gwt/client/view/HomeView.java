@@ -47,6 +47,11 @@ public class HomeView extends Composite implements //
 		presenter.eventClick("Support");
 	}
 
+	@UiHandler("brand")
+	public void onBrandClick(ClickEvent event) {
+		presenter.brandClick();
+	}
+
 	public void showDialog(String content) {
 
 		modal.setTitle(content);
