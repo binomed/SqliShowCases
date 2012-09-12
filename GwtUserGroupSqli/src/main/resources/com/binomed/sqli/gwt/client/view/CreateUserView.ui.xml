@@ -1,45 +1,27 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui" >
+    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+    xmlns:sqli="urn:import:com.binomed.sqli.gwt.client.editor"
+     >
     
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
     
-   <g:HTMLPanel styleName="panelCreate" width="100%">
-   		<div width="100%">
-   		<!--  <g:HorizontalPanel width="100%" styleName="HPanelCreate">-->
-   			<div width="50%" style="float:left;" >
-				<g:VerticalPanel width="95%" >
+    <g:DockLayoutPanel unit="PC" height="500px" >
+	  		 <g:center >
+				<g:VerticalPanel styleName="{res.css.contentCenter}">
 		             <b:Heading size="2" text="{i18n.createTxtWhyTitle}" />
 		             <b:Paragraph><ui:text from="{i18n.createTxtWhy}"/></b:Paragraph>
 		             <b:Heading size="2" text="{i18n.createTxtWinTitle}" />
 		             <b:Paragraph><ui:text from="{i18n.createTxtWin}"/></b:Paragraph>
-		             
 				</g:VerticalPanel>
-   			</div>
-   			<div width="50%"  style="padding-left:10px;float:left;">
-				<b:Container width="100%" >
-					<b:WellForm ui:field="formUser" >
-			            <b:Heading size="3" text="{i18n.createTitleForm}" />
-						<b:ControlLabel><ui:text from="{i18n.createLblName}"/></b:ControlLabel>
-						<g:HorizontalPanel>
-						<b:TextBox placeholder="{i18n.createHoverFirstName}"/>
-						<b:TextBox placeholder="{i18n.createHoverLastName}"/>
-						</g:HorizontalPanel>
-						<b:ControlLabel><ui:text from="{i18n.createLblEmail}"/></b:ControlLabel>
-						<b:TextBox placeholder="{i18n.createHoverEmail}"/>
-						<b:ControlLabel><ui:text from="{i18n.createLblPassword}"/></b:ControlLabel>
-						<b:TextBox placeholder=""/>
-						<b:ControlLabel><ui:text from="{i18n.createLblPasswordConfirm}"/></b:ControlLabel>
-						<b:TextBox placeholder=""/>
-						<b:CheckBox text="{i18n.createCheckContact}" />
-						<b:ControlLabel></b:ControlLabel>
-						<b:SubmitButton addStyleNames="btn" text="{i18n.createBtnCreate}" />
-					</b:WellForm>
+   			</g:center>
+   			<g:east size="50" >
+				<b:Container width="500px" >
+					<g:FlowPanel ui:field="userEditor"/>
+					<!-- <sqli:SqliUserEditor ui:field="userEditor"/>-->
 				</b:Container>
-   			</div>
-	   </div>
-   		<!-- </g:HorizontalPanel>-->
-    </g:HTMLPanel>
+   			</g:east>
+	   </g:DockLayoutPanel>
 </ui:UiBinder>

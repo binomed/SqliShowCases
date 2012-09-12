@@ -4,14 +4,15 @@
 	 ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"   
 	 ui:generateLocales="default"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui" >
+    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+     >
     
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
     
    <g:DockLayoutPanel unit="PC" height="500px" >
 	   <g:center >
-   			<g:VerticalPanel >
+   			<g:VerticalPanel styleName="{res.css.contentCenter}">
 	              <b:Heading size="3" >un titre</b:Heading>
 	              <g:HorizontalPanel>
 	              		<g:Image resource='{res.gwt}'/>
@@ -28,9 +29,9 @@
 				<b:WellForm ui:field="formUser">
 		            <b:Heading size="3" text="{i18n.loginTitle}" />
 					<b:ControlLabel><ui:text from="{i18n.loginLblLogin}" /></b:ControlLabel>
-					<b:TextBox placeholder="{i18n.loginHoverLogin}"/>
+					<b:TextBox placeholder="{i18n.loginHoverLogin}" ui:field="email"/>
 					<b:ControlLabel ><ui:text from="{i18n.loginLblPassword}" /></b:ControlLabel>
-					<b:TextBox placeholder="{i18n.loginHoverPassword}"/>
+					<b:TextBox placeholder="{i18n.loginHoverPassword}" ui:field="password"/>
 					<b:ControlLabel></b:ControlLabel>
 					<b:SubmitButton addStyleNames="btn" text="{i18n.loginBtnConnexion}" />
 					<g:HTMLPanel>

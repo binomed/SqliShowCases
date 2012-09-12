@@ -1,11 +1,11 @@
 package com.binomed.sqli.gwt.client.view;
 
 import com.binomed.sqli.gwt.client.presenter.itf.CreateUserPresenter;
-import com.github.gwtbootstrap.client.ui.Form.SubmitEvent;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -18,6 +18,10 @@ public class CreateUserView extends Composite implements //
 
 	private final CreateUserPresenter presenter;
 
+	@UiField
+	// SqliUserEditor userEditor;
+	FlowPanel userEditor;
+
 	public CreateUserView(CreateUserPresenter presenter) {
 		// Initialization
 		initWidget(uiBinder.createAndBindUi(this));
@@ -28,6 +32,10 @@ public class CreateUserView extends Composite implements //
 	 * Events Part
 	 */
 
+	public FlowPanel getUserEditor() {
+		return userEditor;
+	}
+
 	interface CreateUserViewUiBinder extends UiBinder<Widget, CreateUserView> {
 	}
 
@@ -35,9 +43,9 @@ public class CreateUserView extends Composite implements //
 		return this;
 	}
 
-	@UiHandler("formUser")
-	public void onFormSubmit(SubmitEvent event) {
-		presenter.formSubmit();
-	}
+	// @UiHandler("formUser")
+	// public void onFormSubmit(SubmitEvent event) {
+	// presenter.formSubmit();
+	// }
 
 }

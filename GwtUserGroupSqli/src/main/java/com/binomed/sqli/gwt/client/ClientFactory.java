@@ -3,6 +3,7 @@ package com.binomed.sqli.gwt.client;
 import com.binomed.sqli.gwt.client.place.LoginPlace;
 import com.binomed.sqli.gwt.client.presenter.HomeActivity;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
+import com.binomed.sqli.gwt.client.resources.ProjectResources;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
@@ -26,10 +27,11 @@ public class ClientFactory implements IClientFactory {
 
 	public ClientFactory() {
 		super();
-		// this.eventBus = new SimpleEventBus();
+
+		ProjectResources.instance.css().ensureInjected();
+
 		this.rpcService = GWT.create(SqliService.class);
 		this.container = RootLayoutPanel.get();
-		// this.placeControler = new PlaceController(eventBus);
 
 		// Start ActivityMapper for the main widget
 		activityManager = new ActivityManager(new AppAcitivityMapper(this), this.eventBus);
