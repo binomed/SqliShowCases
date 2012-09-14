@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='GwtUserGroupSqli'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User' />
+  <inherits name="com.google.gwt.http.HTTP" />
+  <inherits name="com.google.gwt.i18n.I18N"/>
+  <inherits name="com.google.gwt.resources.Resources" />
+
+  <!-- We need the JUnit module in the main module,               -->
+  <!-- otherwise eclipse complains (Google plugin bug?)           -->
+  <inherits name='com.google.gwt.junit.JUnit' />
+
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
+  <inherits name="com.google.gwt.place.Place" />
+  <inherits name="com.google.gwt.activity.Activity" />
+  <inherits name="com.google.gwt.editor.Editor" />
+  
+  <!-- Calendar integration -->
+  <inherits name="com.google.api.gwt.services.Calendar" />
+  <inherits name='com.bradrydzewski.gwt.calendar.Calendar' />
+  <inherits name='com.bradrydzewski.gwt.calendar.theme.google.Google' />
+  <inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>
+  <inherits name='com.github.gwtbootstrap.datepicker.Datepicker' />
+  <!-- <inherits name="com.google.gwt.logging.Logging"/>		  -->
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+  <!-- Other module inherits                                      -->
+  <inherits name="com.github.gwtbootstrap.Bootstrap"/>
+  
+  <extend-property name="locale" values="en" />
+  <!-- <extend-property name="locale" values="fr" />-->
+
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='com.binomed.sqli.gwt.client.GwtUserGroupSqli' />
+
+  <!-- Use ClientFactoryImpl by default -->
+   <replace-with class="com.binomed.sqli.gwt.client.ClientFactory">
+   <when-type-is class="com.binomed.sqli.gwt.client.IClientFactory"/>
+   </replace-with>
+   
+   <!-- Super Dev Mode -->
+   <!-- 
+  <add-linker name="xsiframe"/>
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+    -->
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client' />
+  <source path='shared' />
+
+</module>

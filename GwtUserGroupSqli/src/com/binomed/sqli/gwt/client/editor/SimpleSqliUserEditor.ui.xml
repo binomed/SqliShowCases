@@ -1,0 +1,29 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	 ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	 ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"   
+	 ui:generateLocales="default"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui" >
+    
+    <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
+	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
+    
+	<!-- <b:WellForm ui:field="formUser">-->
+	<b:Container width="400px" >
+        <b:Heading size="3" text="{i18n.loginTitle}" />
+		<b:ControlLabel><ui:text from="{i18n.loginLblLogin}" /></b:ControlLabel>
+		<b:TextBox placeholder="{i18n.loginHoverLogin}" ui:field="email"/>
+		<b:ControlLabel ><ui:text from="{i18n.loginLblPassword}" /></b:ControlLabel>
+		<b:PasswordTextBox  placeholder="{i18n.loginHoverPassword}" ui:field="password"/>
+		<b:ControlLabel></b:ControlLabel>
+		<b:Button type="INVERSE" text="{i18n.loginBtnConnexion}" ui:field="btnConnexion" />
+		<g:HTMLPanel>
+			<br></br>
+			<g:Anchor href="#" ui:field="linkNotAccess" text="{i18n.loginLnkNotAccess}" />
+			<br></br>
+			<g:Anchor href="#" ui:field="linkCreate" text="{i18n.loginLnkCreate}" />
+		</g:HTMLPanel>
+	</b:Container>
+	<!-- </b:WellForm>-->
+</ui:UiBinder>

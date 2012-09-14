@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	 ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	 ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"   
+	 ui:generateLocales="default"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+     >
+    
+    <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
+	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
+    
+   <g:DockLayoutPanel unit="PC" height="500px" >
+	   <g:center >
+   			<g:VerticalPanel styleName="{res.css.contentCenter}">
+	              <b:Heading size="3" >un titre</b:Heading>
+	              <g:HorizontalPanel>
+	              		<g:Image resource='{res.gwt}'/>
+	              		<b:Paragraph >du bla bla</b:Paragraph>
+	              </g:HorizontalPanel>
+	              <g:HorizontalPanel>
+	              		<b:Paragraph >du bla bla</b:Paragraph>
+	              		<g:Image resource='{res.logoSqli}'/>
+	              </g:HorizontalPanel>
+			</g:VerticalPanel>
+	   </g:center>
+	   <g:east size="40" >
+		   	<b:Hero>
+		   		<g:FlowPanel ui:field="userEditor"/>
+		   	</b:Hero>
+	   </g:east>
+   </g:DockLayoutPanel>
+</ui:UiBinder>
