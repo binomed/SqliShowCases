@@ -88,4 +88,15 @@ public class ClientFactory implements IClientFactory {
 		return eventBus;
 	}
 
+	@Override
+	public void showLoadMessage(String message) {
+		homePresenter.showLoadMessage(message);
+	}
+
+	@Override
+	public void hideLoadMessage() {
+		homePresenter.hideLoadMessage();
+
+	}
+
 }

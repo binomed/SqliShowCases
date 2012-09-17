@@ -15,6 +15,10 @@ public class HomeActivity implements HomePresenter {
 
 		void showDialog(String source);
 
+		void showLoadMessage(String message);
+
+		void hideLoadMessage();
+
 	}
 
 	private final IClientFactory factory;
@@ -28,17 +32,31 @@ public class HomeActivity implements HomePresenter {
 		panel.add((HomeView) view);
 	}
 
+	@Override
 	public AcceptsOneWidget getMainPanel() {
 		return view.registerMainPanel();
 	}
 
+	@Override
 	public void eventClick(String source) {
 		view.showDialog(source);
 
 	}
 
+	@Override
 	public void brandClick() {
 		factory.getPlaceControler().goTo(new LoginPlace());
+
+	}
+
+	@Override
+	public void showLoadMessage(String message) {
+		view.showLoadMessage(message);
+	}
+
+	@Override
+	public void hideLoadMessage() {
+		view.hideLoadMessage();
 
 	}
 

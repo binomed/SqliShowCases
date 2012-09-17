@@ -19,4 +19,8 @@ public interface IClientFactory {
 
 	void showMessage(String message);
 
+	void showLoadMessage(String message);
+
+	void hideLoadMessage();
+
 }

@@ -11,4 +11,8 @@ public interface HomePresenter extends Presenter {
 
 	AcceptsOneWidget getMainPanel();
 
+	void showLoadMessage(String message);
+
+	void hideLoadMessage();
+
 }

@@ -52,13 +52,19 @@ public class HomeView extends Composite implements //
 		presenter.brandClick();
 	}
 
+	@Override
 	public void showDialog(String content) {
 
-		modal.setTitle(content);
-		modal.show();
-
+		showDialog(content, true);
 	}
 
+	private void showDialog(String title, boolean closable) {
+		modal.setTitle(title);
+		modal.setCloseVisible(closable);
+		modal.show();
+	}
+
+	@Override
 	public AcceptsOneWidget registerMainPanel() {
 		return mainContent;
 
@@ -69,6 +75,18 @@ public class HomeView extends Composite implements //
 
 	public Widget hasWidget() {
 		return this;
+	}
+
+	@Override
+	public void showLoadMessage(String message) {
+		showDialog(message, false);
+
+	}
+
+	@Override
+	public void hideLoadMessage() {
+		modal.hide();
+
 	}
 
 }
