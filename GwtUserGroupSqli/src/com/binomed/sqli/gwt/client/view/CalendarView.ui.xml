@@ -13,20 +13,21 @@
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
     
    <g:DockLayoutPanel unit="PC" height="500px" >
-	   <g:center >
-	   		<g:HorizontalPanel>
+	   <g:west size="20">
 	   		<b2:DateBox format="dd/mm/yyyy" autoClose="false" ui:field="datePicker" />
+	   </g:west>
+	   <g:center >
+	   		<g:VerticalPanel>
 	   		<b:TabPanel tabPosition="above" ui:field="tabPanel">
-	   			<b:TabLink text="1 Day" dataTarget="calendarTab" createTabPane="false" ui:field="oneDay" />
-	   			<b:TabLink text="3 Day" dataTarget="calendarTab" createTabPane="false"  ui:field="threeDay"/>
-	   			<b:TabLink text="Work Week" dataTarget="calendarTab" createTabPane="false"  ui:field="workWeek" />
-	   			<b:TabLink text="Week" dataTarget="calendarTab" createTabPane="false" active="true"  ui:field="week"/>
-	   			<b:TabLink text="Month" dataTarget="calendarTab" createTabPane="false"  ui:field="month"/>
-	   			<b:TabPane href="calendarTab" createTabLink="false">
-   					<g:FlowPanel styleName="{res.css.contentCenter}" width="95%" height="500px" ui:field="calendarContent" />
-	   			</b:TabPane>
+	   			<b:TabLink text="1 Day" createTabPane="false" ui:field="oneDay" />
+	   			<b:TabLink text="3 Day" createTabPane="false"  ui:field="threeDay"/>
+	   			<b:TabLink text="Work Week" createTabPane="false"  ui:field="workWeek" />
+	   			<b:TabLink text="Week" createTabPane="false" active="true"  ui:field="week"/>
+	   			<b:TabLink text="Month" createTabPane="false"  ui:field="month"/>
+	   			
 	   		</b:TabPanel>
-	   		</g:HorizontalPanel>
+ 			<g:FlowPanel styleName="{res.css.contentCenter}" width="95%" height="500px" ui:field="calendarContent" />
+	   		</g:VerticalPanel>
 	   </g:center>
 	   <g:east size="20" >
   			<b:Hero>

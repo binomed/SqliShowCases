@@ -3,6 +3,7 @@ package com.binomed.sqli.gwt.client.view;
 import java.util.Date;
 
 import com.binomed.sqli.gwt.client.presenter.itf.CalendarPresenter;
+import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.bradrydzewski.gwt.calendar.client.Appointment;
 import com.bradrydzewski.gwt.calendar.client.AppointmentStyle;
 import com.bradrydzewski.gwt.calendar.client.Calendar;
@@ -20,6 +21,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.datepicker.client.CalendarUtil;
 
 public class CalendarView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.CalendarActivity.Display //
@@ -30,6 +32,9 @@ public class CalendarView extends Composite implements //
 
 	private final CalendarPresenter presenter;
 	private final Calendar calendar;
+	private int tabIndex;
+
+	private static final String MONDAY = "Mon";
 
 	@UiField
 	FlowPanel calendarContent;
@@ -47,6 +52,7 @@ public class CalendarView extends Composite implements //
 		calendar.setWidth("100%");
 		calendar.setView(CalendarViews.DAY, 7);
 		calendar.setHeight("100%");
+		calendar.scrollToHour(9);
 		calendarContent.add(calendar);
 
 	}
@@ -70,35 +76,83 @@ public class CalendarView extends Composite implements //
 
 	@UiHandler("datePicker")
 	public void onChangeDate(ValueChangeEvent<Date> event) {
-		calendar.setDate(event.getValue());
+
+		Date date = event.getValue();
+		Date dateToUse = null;
+		Date today = new Date();
+		int delta = CalendarUtil.getDaysBetween(today, date);
+		DateTimeFormat format = DateTimeFormat.getFormat("EEE");
+		boolean isMonday = StringUtils.equals(MONDAY, format.format(date));
+		int tabIndex = this.tabIndex;
+		if (isMonday) {
+			dateToUse = date;
+		} else if (delta < 7 && delta > 0) {
+			dateToUse = date;
+			tabIndex = 0;
+		} else {
+
+			Date date1 = CalendarUtil.copyDate(date);
+			CalendarUtil.addDaysToDate(date1, -1);
+			Date date2 = CalendarUtil.copyDate(date);
+			CalendarUtil.addDaysToDate(date2, -2);
+			Date date3 = CalendarUtil.copyDate(date);
+			CalendarUtil.addDaysToDate(date3, -3);
+			Date date4 = CalendarUtil.copyDate(date);
+			CalendarUtil.addDaysToDate(date4, -4);
+			Date date5 = CalendarUtil.copyDate(date);
+			CalendarUtil.addDaysToDate(date5, -5);
+			Date date6 = CalendarUtil.copyDate(date);
+			CalendarUtil.addDaysToDate(date6, -6);
+
+			if (StringUtils.equals(MONDAY, format.format(date1))) {
+				dateToUse = date1;
+			} else if (StringUtils.equals(MONDAY, format.format(date2))) {
+				dateToUse = date2;
+			} else if (StringUtils.equals(MONDAY, format.format(date3))) {
+				dateToUse = date3;
+			} else if (StringUtils.equals(MONDAY, format.format(date4))) {
+				dateToUse = date4;
+			} else if (StringUtils.equals(MONDAY, format.format(date5))) {
+				dateToUse = date5;
+			} else if (StringUtils.equals(MONDAY, format.format(date6))) {
+				dateToUse = date6;
+			}
+
+		}
+
+		manageTabChange(tabIndex, false);
+		calendar.setDate(dateToUse);
 	}
 
 	@UiHandler("oneDay")
 	public void onTab1Day(ClickEvent event) {
-		manageTabChange(0);
+		manageTabChange(0, true);
 	}
 
 	@UiHandler("threeDay")
 	public void onTab3Day(ClickEvent event) {
-		manageTabChange(1);
+		manageTabChange(1, true);
 	}
 
 	@UiHandler("workWeek")
 	public void onTabWorkWeek(ClickEvent event) {
-		manageTabChange(2);
+		manageTabChange(2, true);
 	}
 
 	@UiHandler("week")
 	public void onTabWeek(ClickEvent event) {
-		manageTabChange(3);
+		manageTabChange(3, true);
 	}
 
 	@UiHandler("month")
 	public void onTabMonth(ClickEvent event) {
-		manageTabChange(4);
+		manageTabChange(4, true);
 	}
 
-	private void manageTabChange(int tabIndex) {
+	private void manageTabChange(int tabIndex, boolean overrideIndex) {
+		if (overrideIndex) {
+			this.tabIndex = tabIndex;
+		}
 		if (tabIndex == 0) {
 			calendar.setView(CalendarViews.DAY, 1);
 		} else if (tabIndex == 1) {
