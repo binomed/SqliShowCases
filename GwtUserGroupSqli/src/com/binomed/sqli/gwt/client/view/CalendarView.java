@@ -12,6 +12,8 @@ import com.github.gwtbootstrap.datepicker.client.ui.DateBox;
 import com.google.api.gwt.services.calendar.shared.model.Event;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -19,13 +21,12 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.CalendarUtil;
 
 public class CalendarView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.CalendarActivity.Display //
-		, IsWidget//
+		, SelectionHandler<Appointment> //
 {
 
 	private static CalendarViewUiBinder uiBinder = GWT.create(CalendarViewUiBinder.class);
@@ -53,6 +54,7 @@ public class CalendarView extends Composite implements //
 		calendar.setView(CalendarViews.DAY, 7);
 		calendar.setHeight("100%");
 		calendar.scrollToHour(9);
+		calendar.addSelectionHandler(this);
 		calendarContent.add(calendar);
 
 	}
@@ -171,6 +173,11 @@ public class CalendarView extends Composite implements //
 
 	public Widget hasWidget() {
 		return this;
+	}
+
+	@Override
+	public void onSelection(SelectionEvent<Appointment> event) {
+		presenter.eventClick(event.getSelectedItem());
 	}
 
 }

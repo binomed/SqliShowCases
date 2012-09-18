@@ -66,4 +66,38 @@ public interface I18N extends Constants {
 
 	String createTxtWin();
 
+	/* Agenda View */
+	String agendaDayOne();
+
+	String agendaDayThree();
+
+	String agendaWorkWeek();
+
+	String agendaWeek();
+
+	String agendaMonth();
+
+	String agendaChat();
+
+	String agendaLoadEvents();
+
+	/* Event View */
+	String eventTitle();
+
+	String eventBackEvents();
+
+	String eventSpeaker();
+
+	String eventMainInfo();
+
+	String eventDate();
+
+	String eventHour();
+
+	String eventRoom();
+
+	String eventAddToYourCalendar();
+
+	String eventMap();
+
 }

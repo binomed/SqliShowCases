@@ -3,8 +3,10 @@ package com.binomed.sqli.gwt.client.presenter;
 import java.util.Date;
 
 import com.binomed.sqli.gwt.client.IClientFactory;
+import com.binomed.sqli.gwt.client.place.EventPlace;
 import com.binomed.sqli.gwt.client.presenter.itf.CalendarPresenter;
 import com.binomed.sqli.gwt.client.view.CalendarView;
+import com.bradrydzewski.gwt.calendar.client.Appointment;
 import com.google.api.gwt.client.GoogleApiRequestTransport;
 import com.google.api.gwt.client.OAuth2Login;
 import com.google.api.gwt.services.calendar.shared.Calendar;
@@ -130,6 +132,13 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 		// });
 		// }
 		// });
+	}
+
+	@Override
+	public void eventClick(Appointment event) {
+		factory.getPlaceControler().goTo(new EventPlace());
+		// factory.showMessage("Event Click : " + event.getTitle());
+
 	}
 
 }
