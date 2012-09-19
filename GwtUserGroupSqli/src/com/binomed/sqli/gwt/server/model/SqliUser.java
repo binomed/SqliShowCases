@@ -1,5 +1,7 @@
 package com.binomed.sqli.gwt.server.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -41,7 +43,12 @@ public class SqliUser {
 			Query query = em.createQuery("select u from SqliUser u where u.email=:email and u.password=:pwd");
 			query.setParameter("email", email);
 			query.setParameter("pwd", password);
-			return ((SqliUser) query.getSingleResult());
+			List<SqliUser> results = query.getResultList();
+			if (results != null && results.size() > 0) {
+				return results.get(0);
+			} else {
+				return null;
+			}
 		} finally {
 			em.close();
 		}

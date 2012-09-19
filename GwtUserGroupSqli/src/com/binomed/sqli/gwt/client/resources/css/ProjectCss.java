@@ -8,4 +8,16 @@ public interface ProjectCss extends CssResource {
 
 	String contentCenter();
 
+	String loadContent();
+
+	String loadText();
+
+	String headerDivider();
+
+	String eastDivider();
+
+	String eventDetailsMaring();
+
+	String evenName();
+
 }

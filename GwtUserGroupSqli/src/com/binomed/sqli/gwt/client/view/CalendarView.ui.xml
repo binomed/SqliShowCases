@@ -17,21 +17,29 @@
 	   		<b2:DateBox format="dd/mm/yyyy" autoClose="false" ui:field="datePicker" />
 	   </g:west>
 	   <g:center >
-	   		<g:VerticalPanel>
-	   		<b:TabPanel tabPosition="above" ui:field="tabPanel">
-	   			<b:TabLink text="1 Day" createTabPane="false" ui:field="oneDay" />
-	   			<b:TabLink text="3 Day" createTabPane="false"  ui:field="threeDay"/>
-	   			<b:TabLink text="Work Week" createTabPane="false"  ui:field="workWeek" />
-	   			<b:TabLink text="Week" createTabPane="false" active="true"  ui:field="week"/>
-	   			<b:TabLink text="Month" createTabPane="false"  ui:field="month"/>
-	   			
-	   		</b:TabPanel>
- 			<g:FlowPanel styleName="{res.css.contentCenter}" width="95%" height="500px" ui:field="calendarContent" />
+	   		<g:VerticalPanel width="100%">
+	   		<b:NavTabs>
+	   			<b:NavLink text="{i18n.agendaDayOne}" ui:field="oneDay"  />
+	   			<b:NavLink text="{i18n.agendaDayThree}" ui:field="threeDay"  />
+	   			<b:NavLink text="{i18n.agendaWorkWeek}"  ui:field="workWeek"  />
+	   			<b:NavLink text="{i18n.agendaWeek}" ui:field="week"  />
+	   			<b:NavLink text="{i18n.agendaMonth}"  ui:field="month"  />
+	   		</b:NavTabs>
+	   		<g:AbsolutePanel width="100%" height="500px">
+	   			<g:at left="0" top="0">
+		 			<g:FlowPanel styleName="{res.css.contentCenter}" width="95%" height="500px" ui:field="calendarContent" />
+	   			</g:at>
+	   			<g:at left="0" top="0">
+		 			<g:FlowPanel styleName="{res.css.loadContent}" width="95%" height="500px" ui:field="panelLoad" >
+		 				<g:Label styleName="{res.css.loadText}" text="{i18n.agendaLoadEvents}"/>
+		 			</g:FlowPanel>
+	   			</g:at>
+	   		</g:AbsolutePanel>
 	   		</g:VerticalPanel>
 	   </g:center>
 	   <g:east size="20" >
   			<b:Hero>
-  				   <b:Heading size="2" text="Chat" />
+  				   <b:Heading size="2" text="{i18n.agendaChat}" />
   			</b:Hero>
 	   </g:east>
    </g:DockLayoutPanel>

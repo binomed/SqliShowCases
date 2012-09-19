@@ -39,6 +39,8 @@ public class CalendarView extends Composite implements //
 
 	@UiField
 	FlowPanel calendarContent;
+	@UiField
+	FlowPanel panelLoad;
 
 	@UiField
 	DateBox datePicker;
@@ -48,27 +50,34 @@ public class CalendarView extends Composite implements //
 		initWidget(uiBinder.createAndBindUi(this));
 		this.presenter = presenter;
 
+		this.panelLoad.setVisible(false);
 		calendar = new Calendar();
 		calendar.setDate(new Date()); // calendar date, not required
 		calendar.setWidth("100%");
-		calendar.setView(CalendarViews.DAY, 7);
 		calendar.setHeight("100%");
 		calendar.scrollToHour(9);
 		calendar.addSelectionHandler(this);
 		calendarContent.add(calendar);
+		changeDate(new Date());
+		calendar.setView(CalendarViews.DAY, 7);
 
 	}
 
 	@Override
 	public void addEvent(Event event) {
+		Appointment appointment = new Appointment();
+		appointment.setStyle(AppointmentStyle.ORANGE);
 		if (event.getStart().getDateTime() != null && event.getStart().getDateTime().length() > 0) {
-			Appointment appointment = new Appointment();
-			appointment.setStyle(AppointmentStyle.ORANGE);
 			appointment.setStart(DateTimeFormat.getFormat(DATE_TIME_FORMAT).parse(event.getStart().getDateTime()));
 			appointment.setEnd(DateTimeFormat.getFormat(DATE_TIME_FORMAT).parse(event.getEnd().getDateTime()));
-			appointment.setTitle(event.getSummary());
-			calendar.addAppointment(appointment);
+		} else {
+			appointment.setStart(DateTimeFormat.getFormat(DATE_TIME_FORMAT_DAY).parse(event.getStart().getDate()));
+			appointment.setEnd(DateTimeFormat.getFormat(DATE_TIME_FORMAT_DAY).parse(event.getEnd().getDate()));
+
 		}
+		appointment.setId(event.getId());
+		appointment.setTitle(event.getSummary());
+		calendar.addAppointment(appointment);
 
 	}
 
@@ -78,8 +87,10 @@ public class CalendarView extends Composite implements //
 
 	@UiHandler("datePicker")
 	public void onChangeDate(ValueChangeEvent<Date> event) {
+		changeDate(event.getValue());
+	}
 
-		Date date = event.getValue();
+	private void changeDate(Date date) {
 		Date dateToUse = null;
 		Date today = new Date();
 		int delta = CalendarUtil.getDaysBetween(today, date);
@@ -178,6 +189,18 @@ public class CalendarView extends Composite implements //
 	@Override
 	public void onSelection(SelectionEvent<Appointment> event) {
 		presenter.eventClick(event.getSelectedItem());
+	}
+
+	@Override
+	public void showLoad() {
+		panelLoad.setVisible(true);
+
+	}
+
+	@Override
+	public void hideLoad() {
+		panelLoad.setVisible(false);
+
 	}
 
 }

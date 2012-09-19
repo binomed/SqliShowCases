@@ -6,6 +6,8 @@ import com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor;
 import com.binomed.sqli.gwt.client.place.CalendarPlace;
 import com.binomed.sqli.gwt.client.place.CreateUserPlace;
 import com.binomed.sqli.gwt.client.presenter.itf.LoginPresenter;
+import com.binomed.sqli.gwt.client.resources.i18n.I18N;
+import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.binomed.sqli.gwt.client.view.LoginView;
 import com.binomed.sqli.gwt.shared.model.SqliUserLogin;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
@@ -36,19 +38,16 @@ public class LoginActivity implements Activity, LoginPresenter {
 
 	@Override
 	public String mayStop() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void onCancel() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void onStop() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -70,30 +69,38 @@ public class LoginActivity implements Activity, LoginPresenter {
 	public void formSubmit() {
 		SqliUserLogin user = driver.retrieveUser();
 
-		Request<SqliUserProxy> request = factory.getRequestFactory().userRequest().verifyUser(user.getEmail(), user.getPassword());
-		request.fire(new Receiver<SqliUserProxy>() {
+		if (StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getPassword())) {
 
-			@Override
-			public void onSuccess(SqliUserProxy user) {
-				if (user == null) {
-					// factory.showMessage("Unknow User");
+			factory.showMessage(I18N.instance.loginEmptyFields());
+		} else {
 
-				} else {
-					factory.showMessage("User found");
+			// factory.showLoadMessage(I18N.instance.loginVerification());
+			Request<SqliUserProxy> request = factory.getRequestFactory().userRequest().verifyUser(user.getEmail(), user.getPassword());
+			request.fire(new Receiver<SqliUserProxy>() {
+
+				@Override
+				public void onSuccess(SqliUserProxy user) {
+					if (user == null) {
+						// factory.showMessage("Unknow User");
+
+						// factory.showMessage(I18N.instance.loginUnkown());
+					} else {
+						// box.hide();
+						// factory.showMessage("User found");
+
+					}
+					// factory.hideLoadMessage();
+					factory.getPlaceControler().goTo(new CalendarPlace());
 
 				}
 
-			}
-
-			@Override
-			public void onFailure(ServerFailure error) {
-				factory.showMessage("Error Verify User: " + error.getMessage());
-				super.onFailure(error);
-			}
-		});
-
-		// TODO à déplacer
-		factory.getPlaceControler().goTo(new CalendarPlace());
+				@Override
+				public void onFailure(ServerFailure error) {
+					factory.showMessage("Error Verify User: " + error.getMessage());
+					super.onFailure(error);
+				}
+			});
+		}
 
 	}
 

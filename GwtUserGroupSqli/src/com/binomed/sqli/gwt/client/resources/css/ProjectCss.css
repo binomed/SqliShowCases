@@ -8,5 +8,42 @@
     margin-right:auto;    
 	width:80%;
 }
+.loadContent{
+    margin:auto;
+	width:80%;
+	background-color: rgba(192,192,192,0.5);
+}
+.loadText{
+    margin: auto;
+	width: 300px;
+	height: 100%;
+	position: relative;
+	top: 50%;
+}
+.headerDivider {
+     border-left:1px solid #38546d; 
+     margin-left:10px;
+     margin-right:10px;
+     height:40px;
+     right:249px;
+     top:10px; 
+}
+.eastDivider {
+     border-left:1px solid #38546d; 
+     margin-left:30px;
+     padding-left:30px;
+     height:90%;
+     right:249px;
+     top:10px; 
+}
 
+.eventDetailsMaring {
+	 margin-top:30px;
+     padding-left:20px;
+	 margin-bottom:30px;
+}
+
+.evenName {
+	 color: #B40404;
+}
 

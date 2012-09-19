@@ -6,30 +6,40 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
     xmlns:b2="urn:import:com.github.gwtbootstrap.datepicker.client.ui"
-    xmlns:c="com.bradrydzewski.gwt.calendar.client"
-     >
+    xmlns:c="com.bradrydzewski.gwt.calendar.client">
     
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
     
    <g:DockLayoutPanel unit="PC" height="500px" >
-   	   <g:north size="5">
-   	   	<g:HorizontalPanel>
-   	   	 	<b:Heading size="3" text="{i18n.eventTitle}" />
-   	   	 	<b:Heading size="3" text="{i18n.eventBackEvents}" />
-   	   	</g:HorizontalPanel>
+   	   <g:north size="10">
+   	   		<g:HorizontalPanel>
+				<b:Heading size="3" text="{i18n.eventTitle}" />
+	   	   		<g:HTMLPanel styleName="{res.css.headerDivider}" />
+				<b:Heading size="3" text="{i18n.eventBackEvents}" ui:field="backToEvents"  /> 
+		 </g:HorizontalPanel>
    	   </g:north>
-	   <g:center >
-	   		<g:VerticalPanel>
-   	   		<b:Heading size="2" ui:field="eventName" text="Un text"/>
-   	   		
-	   		
-	   		</g:VerticalPanel>
+	   <g:center>
+	   		<g:FlowPanel>
+   	   			<b:Heading size="2" ui:field="eventName" text="Un texte" styleName="{res.css.evenName}" />
+   	   			<b:Paragraph ui:field="eventDetails">Aenean ornare tristique rhoncus. Donec dapibus facilisis nunc, eu aliquam turpis feugiat quis. Duis mauris magna, elementum ac venenatis eget, sodales vitae magna. Suspendisse potenti. Fusce eu massa sed est ullamcorper tristique. Nunc commodo dignissim pulvinar. Nulla dapibus fermentum elit, vitae ultrices magna tincidunt quis. Mauris arcu eros, rhoncus nec placerat vel, porta nec diam. Nam in diam nec odio commodo luctus ultrices in orci. Phasellus quis metus non risus dictum varius in nec nulla. Quisque pharetra arcu non felis luctus vitae faucibus lacus dictum. Nam quis urna erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec suscipit, urna a tincidunt pulvinar, arcu turpis elementum neque, eget consequat nisl risus non massa. Morbi ac ipsum sed ligula semper auctor.</b:Paragraph>
+	   			<g:HTMLPanel>
+	   				<HR/>
+	   			</g:HTMLPanel>
+   	   			<b:Heading size="4" text="{i18n.eventSpeaker}"/>
+   	   			<g:FlowPanel ui:field="speakers" />
+	   		</g:FlowPanel>
 	   </g:center>
-	   <g:east size="45" >
-  			<b:Hero>
-  				   <b:Heading size="2" text="Chat" />
-  			</b:Hero>
+	   <g:east size="40" >
+	   		<g:FlowPanel styleName="{res.css.eastDivider}">
+	 			<b:Heading size="3" text="{i18n.eventMainInfo}"/>
+	 			<b:Container styleName="{res.css.eventDetailsMaring}">
+	 				<b:Heading size="4" text="{i18n.eventDate}" /><b:ControlLabel ui:field="eventDate" />
+	 				<b:Heading size="4" text="{i18n.eventHour}" /><b:ControlLabel ui:field="eventHour" />
+	 				<b:Heading size="4" text="{i18n.eventRoom}" /><b:ControlLabel ui:field="eventRoom" />
+	 			</b:Container>
+	 			<b:Heading size="3" text="{i18n.eventMap}" />
+	   		</g:FlowPanel>
 	   </g:east>
    </g:DockLayoutPanel>
 </ui:UiBinder>

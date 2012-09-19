@@ -33,7 +33,7 @@ public class AppAcitivityMapper implements ActivityMapper {
 			return new CalendarActivity(clientFactory);
 		}
 		if (place instanceof EventPlace) {
-			return new EventActivity(clientFactory);
+			return new EventActivity(clientFactory, (EventPlace) place);
 		}
 		return null;
 	}

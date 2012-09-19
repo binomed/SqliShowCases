@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client.view;
 
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
+import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.github.gwtbootstrap.client.ui.Modal;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -59,9 +60,13 @@ public class HomeView extends Composite implements //
 	}
 
 	private void showDialog(String title, boolean closable) {
+
+		boolean previousShow = StringUtils.isNotEmpty(modal.getTitle());
 		modal.setTitle(title);
 		modal.setCloseVisible(closable);
-		modal.show();
+		if (!previousShow) {
+			modal.show();
+		}
 	}
 
 	@Override
@@ -85,6 +90,7 @@ public class HomeView extends Composite implements //
 
 	@Override
 	public void hideLoadMessage() {
+		modal.setTitle("");
 		modal.hide();
 
 	}

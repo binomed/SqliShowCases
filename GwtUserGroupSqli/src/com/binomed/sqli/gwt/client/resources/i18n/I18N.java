@@ -7,6 +7,10 @@ public interface I18N extends Constants {
 
 	public static final I18N instance = GWT.create(I18N.class);
 
+	/* General */
+
+	String generalFormInvalid();
+
 	/* MainWindow */
 	String mainTitle();
 
@@ -36,6 +40,12 @@ public interface I18N extends Constants {
 	String loginLnkNotAccess();
 
 	String loginLnkCreate();
+
+	String loginVerification();
+
+	String loginEmptyFields();
+
+	String loginUnkown();
 
 	/* Create View */
 	String createTitleForm();

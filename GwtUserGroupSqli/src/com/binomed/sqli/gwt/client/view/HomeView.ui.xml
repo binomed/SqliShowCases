@@ -27,5 +27,7 @@
 			    <g:Label ui:field="modelLbl"></g:Label>
 			</b:Modal>
 		</b:Container>
+		<g:VerticalPanel width="90%">
+		</g:VerticalPanel>
     </g:HTMLPanel>
 </ui:UiBinder>

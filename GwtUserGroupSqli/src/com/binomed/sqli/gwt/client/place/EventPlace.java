@@ -6,19 +6,30 @@ import com.google.gwt.place.shared.Prefix;
 
 public class EventPlace extends Place {
 
+	private final String eventId;
+
+	public String getEventId() {
+		return eventId;
+	}
+
+	public EventPlace(String eventId) {
+		super();
+		this.eventId = eventId;
+	}
+
 	@Prefix("event")
 	public static class Tokenizer implements PlaceTokenizer<EventPlace> {
 
 		@Override
 		public EventPlace getPlace(String token) {
 			// Nothing special with home
-			return new EventPlace();
+			return new EventPlace(token);
 		}
 
 		@Override
 		public String getToken(EventPlace place) {
 			// Nothing corresponding to the token
-			return "";
+			return place.eventId;
 		}
 
 	}
