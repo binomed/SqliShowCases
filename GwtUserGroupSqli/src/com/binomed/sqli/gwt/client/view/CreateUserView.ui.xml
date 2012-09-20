@@ -7,7 +7,24 @@
     
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
-    
+    <g:HTMLPanel>
+    	<b:FluidRow>
+    		<b:Column size="6">
+				<g:VerticalPanel styleName="{res.css.contentCenter}">
+		             <b:Heading size="2" text="{i18n.createTxtWhyTitle}" />
+		             <b:Paragraph><ui:text from="{i18n.createTxtWhy}"/></b:Paragraph>
+		             <b:Heading size="2" text="{i18n.createTxtWinTitle}" />
+		             <b:Paragraph><ui:text from="{i18n.createTxtWin}"/></b:Paragraph>
+				</g:VerticalPanel>
+    		</b:Column>
+    		<b:Column size="6">
+   				<b:Hero>
+					<g:FlowPanel ui:field="userEditor"/>
+				</b:Hero>
+    		</b:Column>
+    	</b:FluidRow>
+    </g:HTMLPanel>
+    <!-- 
     <g:DockLayoutPanel unit="PC" height="500px" >
 	  		 <g:center >
 				<g:VerticalPanel styleName="{res.css.contentCenter}">
@@ -23,4 +40,5 @@
 				</b:Hero>
    			</g:east>
 	   </g:DockLayoutPanel>
+     -->
 </ui:UiBinder>

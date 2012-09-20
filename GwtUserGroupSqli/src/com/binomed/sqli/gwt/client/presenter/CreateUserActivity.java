@@ -7,7 +7,6 @@ import com.binomed.sqli.gwt.client.presenter.itf.CreateUserPresenter;
 import com.binomed.sqli.gwt.client.view.CreateUserView;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -29,21 +28,25 @@ public class CreateUserActivity implements Activity, CreateUserPresenter {
 		this.factory = factory;
 	}
 
+	@Override
 	public String mayStop() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public void onCancel() {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Override
 	public void onStop() {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Override
 	public void start(AcceptsOneWidget panel, EventBus eventBus) {
 		Display view = new CreateUserView(this);
 		panel.setWidget(view);
@@ -54,23 +57,25 @@ public class CreateUserActivity implements Activity, CreateUserPresenter {
 
 	}
 
+	@Override
 	public void formSubmit() {
 		driver.save();
-		factory.getService().testService(new AsyncCallback<String>() {
-
-			public void onSuccess(String arg0) {
-				// TODO Auto-generated method stub
-				factory.showMessage("Form Submit");
-
-			}
-
-			public void onFailure(Throwable arg0) {
-				// TODO Auto-generated method stub
-				factory.showMessage("Form Submit Error");
-
-			}
-		});
+		// factory.getService().testService(new AsyncCallback<String>() {
+		//
+		// @Override
+		// public void onSuccess(String arg0) {
+		// // TODO Auto-generated method stub
+		// factory.showMessage("Form Submit");
+		//
+		// }
+		//
+		// @Override
+		// public void onFailure(Throwable arg0) {
+		// // TODO Auto-generated method stub
+		// factory.showMessage("Form Submit Error");
+		//
+		// }
+		// });
 
 	}
-
 }

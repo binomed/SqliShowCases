@@ -28,9 +28,14 @@
   <!-- <inherits name="com.google.gwt.logging.Logging"/>		  -->
   <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+  
+  <!-- Maps -->
+  <inherits name="com.google.gwt.ajaxloader.AjaxLoader" />
+  <inherits name="com.google.maps.gwt.GoogleMaps" />
 
   <!-- Other module inherits                                      -->
   <inherits name="com.github.gwtbootstrap.Bootstrap"/>
+  <set-property name="bootstrap.responsiveDesign" value="true"/>
   
   <extend-property name="locale" values="en" />
   <!-- <extend-property name="locale" values="fr" />-->

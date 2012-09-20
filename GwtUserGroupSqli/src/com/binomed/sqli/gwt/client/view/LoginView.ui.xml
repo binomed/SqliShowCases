@@ -10,49 +10,38 @@
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
     
-   <g:DockLayoutPanel unit="PC" height="500px" >
-	   <g:center >
-	   <!-- 
-   			<g:VerticalPanel styleName="{res.css.contentCenter}">
-	    -->
-	    <g:FlowPanel>
-	              <b:Row>
-		              <b:Column size="10">
-			              <b:Heading size="3" styleName="{res.css.contentCenter}" >un titre</b:Heading>
-		              </b:Column>
-	              </b:Row>
-	              <b:Row height="50px" />
-	              <b:Row>
-		              <b:Column size="4">
-		              		<g:Image resource='{res.gwt}'/>
-		              </b:Column>
-		              <b:Column size="6">
-		              		<b:Paragraph >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eros dui, convallis vel ornare a, volutpat eu quam. In pharetra tellus lectus, non vulputate ligula. Duis commodo, sapien ac convallis dictum, nibh neque interdum mauris, sed ultrices turpis est eu tellus. Proin sit amet nunc enim. Vivamus iaculis orci id massa egestas iaculis. In rhoncus odio ac dolor volutpat eu iaculis nibh iaculis. Sed ultricies, massa tincidunt porttitor fermentum, tortor nisl vulputate erat, in pharetra metus eros ut ante. Sed at cursus arcu. Sed fringilla vehicula luctus. Morbi ac turpis augue. Nulla bibendum tortor quis libero congue nec porttitor enim hendrerit. Integer augue sapien, adipiscing non bibendum eget, viverra non quam. Phasellus nisi turpis, sollicitudin sed volutpat non, euismod volutpat neque. Nunc orci sapien, tempus vitae molestie nec, aliquam eu nisi. Aliquam ut ante sit amet erat varius ultricies id dapibus nunc.</b:Paragraph>
-		              </b:Column>
-	              </b:Row>
-	              <b:Row height="20px" />
-	              <b:Row>
-		              <b:Column size="6">
-	              		<b:Paragraph >Pellentesque quis ipsum dui, ac luctus metus. Vestibulum posuere velit malesuada nunc suscipit fermentum. Pellentesque dignissim semper vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt malesuada mauris non egestas. Sed et tortor dui, non commodo odio. Cras sit amet odio justo. Fusce orci lorem, pellentesque at rutrum sed, tempor non libero. Sed tellus leo, suscipit sit amet aliquam sed, varius nec leo. Sed non quam sed turpis lobortis tincidunt. Sed quis urna justo. Nunc in tincidunt felis.</b:Paragraph>
-		              </b:Column>
-		              <b:Column size="4">
-	              		<g:Image resource='{res.logoSqli}'/>
-		              </b:Column>
-	              </b:Row>
-	    </g:FlowPanel>
-	              
-	              <!-- 
-	              <g:HorizontalPanel>
-	              </g:HorizontalPanel>
-	              <g:HorizontalPanel>
-	              </g:HorizontalPanel>
-			</g:VerticalPanel>
-	               -->
-	   </g:center>
-	   <g:east size="40" >
-		   	<b:Hero>
-		   		<g:FlowPanel ui:field="userEditor"/>
-		   	</b:Hero>
-	   </g:east>
-   </g:DockLayoutPanel>
+	    <g:HTMLPanel>
+	    	<b:FluidRow>
+	    		<b:Column size="8">
+		    		 <b:FluidRow>
+			              <b:Column size="12">
+				              <b:Heading size="3" styleName="{res.css.contentCenter}" >un titre</b:Heading>
+			              </b:Column>
+		              </b:FluidRow>
+		              <b:FluidRow height="50px" />
+		              <b:FluidRow>
+			              <b:Column size="4">
+			              		<g:Image resource='{res.gwt}'/>
+			              </b:Column>
+			              <b:Column size="8">
+			              		<b:Paragraph >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eros dui, convallis vel ornare a, volutpat eu quam. In pharetra tellus lectus, non vulputate ligula. Duis commodo, sapien ac convallis dictum, nibh neque interdum mauris, sed ultrices turpis est eu tellus. Proin sit amet nunc enim. Vivamus iaculis orci id massa egestas iaculis. In rhoncus odio ac dolor volutpat eu iaculis nibh iaculis. Sed ultricies, massa tincidunt porttitor fermentum, tortor nisl vulputate erat, in pharetra metus eros ut ante. Sed at cursus arcu. Sed fringilla vehicula luctus. Morbi ac turpis augue. Nulla bibendum tortor quis libero congue nec porttitor enim hendrerit. Integer augue sapien, adipiscing non bibendum eget, viverra non quam. Phasellus nisi turpis, sollicitudin sed volutpat non, euismod volutpat neque. Nunc orci sapien, tempus vitae molestie nec, aliquam eu nisi. Aliquam ut ante sit amet erat varius ultricies id dapibus nunc.</b:Paragraph>
+			              </b:Column>
+		              </b:FluidRow>
+		              <b:FluidRow height="20px" />
+		              <b:FluidRow>
+			              <b:Column size="8">
+		              		<b:Paragraph >Pellentesque quis ipsum dui, ac luctus metus. Vestibulum posuere velit malesuada nunc suscipit fermentum. Pellentesque dignissim semper vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt malesuada mauris non egestas. Sed et tortor dui, non commodo odio. Cras sit amet odio justo. Fusce orci lorem, pellentesque at rutrum sed, tempor non libero. Sed tellus leo, suscipit sit amet aliquam sed, varius nec leo. Sed non quam sed turpis lobortis tincidunt. Sed quis urna justo. Nunc in tincidunt felis.</b:Paragraph>
+			              </b:Column>
+			              <b:Column size="4">
+		              		<g:Image resource='{res.logoSqli}'/>
+			              </b:Column>
+		              </b:FluidRow>
+	    		</b:Column>
+	    		<b:Column size="4">
+	    			<b:Hero>
+				   		<g:FlowPanel ui:field="userEditor"/>
+				   	</b:Hero>
+	    		</b:Column>
+	    	</b:FluidRow>
+	    </g:HTMLPanel>	    
 </ui:UiBinder>

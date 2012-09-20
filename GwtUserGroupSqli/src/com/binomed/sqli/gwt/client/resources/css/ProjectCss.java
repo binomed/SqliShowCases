@@ -18,6 +18,8 @@ public interface ProjectCss extends CssResource {
 
 	String eventDetailsMaring();
 
-	String evenName();
+	String eventDetailsMaringLbl();
+
+	String eventName();
 
 }

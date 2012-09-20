@@ -43,7 +43,11 @@
 	 margin-bottom:30px;
 }
 
-.evenName {
+.eventDetailsMaringLbl {
+     padding-left:20px;
+}
+
+.eventName {
 	 color: #B40404;
 }
 

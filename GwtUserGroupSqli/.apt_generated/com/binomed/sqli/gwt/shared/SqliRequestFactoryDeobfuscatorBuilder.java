@@ -20,18 +20,18 @@ withOperation(new OperationKey("qrTILW7cRRWSeyqBS_VUrMf$FiE="),
   .withMethodName("persist")
   .withRequestContext("com.binomed.sqli.gwt.shared.SqliUserRequest")
   .build());
-withOperation(new OperationKey("qSC4_QUK3VRRtAU0dTzInc9WlcE="),
-  new OperationData.Builder()
-  .withClientMethodDescriptor("(Ljava/lang/Long;)Lcom/google/web/bindery/requestfactory/shared/Request;")
-  .withDomainMethodDescriptor("(Ljava/lang/Long;)Lcom/binomed/sqli/gwt/server/model/SqliUser;")
-  .withMethodName("findUserById")
-  .withRequestContext("com.binomed.sqli.gwt.shared.SqliUserRequest")
-  .build());
 withOperation(new OperationKey("be08YeTY6lbGlq$FlSn2GtEq1jc="),
   new OperationData.Builder()
   .withClientMethodDescriptor("(Ljava/lang/String;)Lcom/google/web/bindery/requestfactory/shared/Request;")
   .withDomainMethodDescriptor("(Ljava/lang/String;)Lcom/binomed/sqli/gwt/server/model/SqliUser;")
   .withMethodName("findUser")
+  .withRequestContext("com.binomed.sqli.gwt.shared.SqliUserRequest")
+  .build());
+withOperation(new OperationKey("cO$BjvMda8bXSUc$0UBQzYIrz7Q="),
+  new OperationData.Builder()
+  .withClientMethodDescriptor("(Ljava/lang/Long;)Lcom/google/web/bindery/requestfactory/shared/Request;")
+  .withDomainMethodDescriptor("(Ljava/lang/Long;)Lcom/binomed/sqli/gwt/server/model/SqliUser;")
+  .withMethodName("findSqliUser")
   .withRequestContext("com.binomed.sqli.gwt.shared.SqliUserRequest")
   .build());
 withRawTypeToken("xEDp9go$wt7QqNDtDOamuHccPOU=", "com.binomed.sqli.gwt.shared.model.SqliUserProxy");

@@ -10,9 +10,50 @@
     
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
-    
+
+   <g:HTMLPanel>
+	   <b:FluidRow>
+	   	<b:Column size="12">
+   	   		<g:HorizontalPanel>
+				<b:Heading size="3" text="{i18n.eventTitle}" />
+	   	   		<g:HTMLPanel styleName="{res.css.headerDivider}" />
+				<b:Heading size="3" text="{i18n.eventBackEvents}" ui:field="backToEvents"  /> 
+		 </g:HorizontalPanel>
+	   	</b:Column>
+	   </b:FluidRow> 
+	   <b:FluidRow>
+	   	<b:Column size="8">
+	   		<g:FlowPanel>
+   	   			<b:Heading size="2" ui:field="eventName" text="Un texte" styleName="{res.css.eventName}" />
+   	   			<b:Paragraph ui:field="eventDetails">Aenean ornare tristique rhoncus. Donec dapibus facilisis nunc, eu aliquam turpis feugiat quis. Duis mauris magna, elementum ac venenatis eget, sodales vitae magna. Suspendisse potenti. Fusce eu massa sed est ullamcorper tristique. Nunc commodo dignissim pulvinar. Nulla dapibus fermentum elit, vitae ultrices magna tincidunt quis. Mauris arcu eros, rhoncus nec placerat vel, porta nec diam. Nam in diam nec odio commodo luctus ultrices in orci. Phasellus quis metus non risus dictum varius in nec nulla. Quisque pharetra arcu non felis luctus vitae faucibus lacus dictum. Nam quis urna erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec suscipit, urna a tincidunt pulvinar, arcu turpis elementum neque, eget consequat nisl risus non massa. Morbi ac ipsum sed ligula semper auctor.</b:Paragraph>
+	   			<g:HTMLPanel>
+	   				<HR/>
+	   			</g:HTMLPanel>
+   	   			<b:Heading size="4" text="{i18n.eventSpeaker}"/>
+   	   			<g:FlowPanel ui:field="speakers" />
+	   		</g:FlowPanel>
+	   	</b:Column>
+	   	<b:Column size="4">
+	   		<g:FlowPanel styleName="{res.css.eastDivider}">
+	 			<b:Heading size="3" text="{i18n.eventMainInfo}"/>
+	 			<b:Container styleName="{res.css.eventDetailsMaring}">
+	 				<b:Heading size="4" text="{i18n.eventDate}" /><b:ControlLabel ui:field="eventDate" styleName="{res.css.eventDetailsMaringLbl}" />
+	 				<b:Heading size="4" text="{i18n.eventHour}" /><b:ControlLabel ui:field="eventHour" styleName="{res.css.eventDetailsMaringLbl}"/>
+	 				<b:Heading size="4" text="{i18n.eventRoom}" /><b:ControlLabel ui:field="eventRoom" styleName="{res.css.eventDetailsMaringLbl}"/>
+	 				<g:HorizontalPanel>
+	 				<b:Button size="SMALL" styleName="icon-calendar" />
+	 				<b:ControlLabel styleName="{res.css.eventDetailsMaringLbl}"><ui:text from="{i18n.eventAddToYourCalendar}" /></b:ControlLabel>
+	 				</g:HorizontalPanel>
+	 			</b:Container>
+	 			<b:Heading size="3" text="{i18n.eventMap}" />
+	 			<g:FlowPanel width="300px" height="250px" ui:field="mapContainer" styleName="{res.css.eventDetailsMaring}"></g:FlowPanel>
+	   		</g:FlowPanel>
+	   	</b:Column>
+	   </b:FluidRow> 
+	</g:HTMLPanel>    
+   <!-- 
    <g:DockLayoutPanel unit="PC" height="500px" >
-   	   <g:north size="10">
+   	   <g:north size="4">
    	   		<g:HorizontalPanel>
 				<b:Heading size="3" text="{i18n.eventTitle}" />
 	   	   		<g:HTMLPanel styleName="{res.css.headerDivider}" />
@@ -21,7 +62,7 @@
    	   </g:north>
 	   <g:center>
 	   		<g:FlowPanel>
-   	   			<b:Heading size="2" ui:field="eventName" text="Un texte" styleName="{res.css.evenName}" />
+   	   			<b:Heading size="2" ui:field="eventName" text="Un texte" styleName="{res.css.eventName}" />
    	   			<b:Paragraph ui:field="eventDetails">Aenean ornare tristique rhoncus. Donec dapibus facilisis nunc, eu aliquam turpis feugiat quis. Duis mauris magna, elementum ac venenatis eget, sodales vitae magna. Suspendisse potenti. Fusce eu massa sed est ullamcorper tristique. Nunc commodo dignissim pulvinar. Nulla dapibus fermentum elit, vitae ultrices magna tincidunt quis. Mauris arcu eros, rhoncus nec placerat vel, porta nec diam. Nam in diam nec odio commodo luctus ultrices in orci. Phasellus quis metus non risus dictum varius in nec nulla. Quisque pharetra arcu non felis luctus vitae faucibus lacus dictum. Nam quis urna erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec suscipit, urna a tincidunt pulvinar, arcu turpis elementum neque, eget consequat nisl risus non massa. Morbi ac ipsum sed ligula semper auctor.</b:Paragraph>
 	   			<g:HTMLPanel>
 	   				<HR/>
@@ -34,12 +75,18 @@
 	   		<g:FlowPanel styleName="{res.css.eastDivider}">
 	 			<b:Heading size="3" text="{i18n.eventMainInfo}"/>
 	 			<b:Container styleName="{res.css.eventDetailsMaring}">
-	 				<b:Heading size="4" text="{i18n.eventDate}" /><b:ControlLabel ui:field="eventDate" />
-	 				<b:Heading size="4" text="{i18n.eventHour}" /><b:ControlLabel ui:field="eventHour" />
-	 				<b:Heading size="4" text="{i18n.eventRoom}" /><b:ControlLabel ui:field="eventRoom" />
+	 				<b:Heading size="4" text="{i18n.eventDate}" /><b:ControlLabel ui:field="eventDate" styleName="{res.css.eventDetailsMaringLbl}" />
+	 				<b:Heading size="4" text="{i18n.eventHour}" /><b:ControlLabel ui:field="eventHour" styleName="{res.css.eventDetailsMaringLbl}"/>
+	 				<b:Heading size="4" text="{i18n.eventRoom}" /><b:ControlLabel ui:field="eventRoom" styleName="{res.css.eventDetailsMaringLbl}"/>
+	 				<g:HorizontalPanel>
+	 				<b:Button size="SMALL" styleName="icon-calendar" />
+	 				<b:ControlLabel styleName="{res.css.eventDetailsMaringLbl}"><ui:text from="{i18n.eventAddToYourCalendar}" /></b:ControlLabel>
+	 				</g:HorizontalPanel>
 	 			</b:Container>
 	 			<b:Heading size="3" text="{i18n.eventMap}" />
+	 			<g:FlowPanel width="300px" height="250px" ui:field="mapContainer" styleName="{res.css.eventDetailsMaring}"></g:FlowPanel>
 	   		</g:FlowPanel>
 	   </g:east>
    </g:DockLayoutPanel>
+    --> 
 </ui:UiBinder>

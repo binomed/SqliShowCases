@@ -7,13 +7,20 @@
     <!-- <ui:style src="../resources/css/CstStyle.css" />-->
 	<ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
-   <g:HTMLPanel>
+	<g:ScrollPanel height="100%">
+   <g:HTMLPanel >
             <b:Navbar>
                 <b:Brand href="#" ui:field="brand" text="{i18n.mainNavBrand}" />
                 <b:Nav>
                     <b:NavLink href="http://www.sqli.com" targetHistoryToken="_blank" text="{i18n.mainNavSQLI}" />
                     <b:NavLink ui:field="aPropos" text="{i18n.mainNavAbout}" />
                     <b:NavLink ui:field="support" text="{i18n.mainNavSupport}" />
+                </b:Nav>
+                <b:Nav alignment="RIGHT" ui:field="userNav">
+                	<b:Dropdown text="test" ui:field="userDrop" rightDropdown="true">
+                		<b:NavLink icon="PENCIL" ui:field="userEdit" text="{i18n.mainNavEdit}"/>
+                		<b:NavLink icon="OFF" ui:field="userDisconnect" text="{i18n.mainNavDisconnect}"/>
+                	</b:Dropdown>
                 </b:Nav>
             </b:Navbar>
 		<b:Container width="90%">
@@ -27,7 +34,6 @@
 			    <g:Label ui:field="modelLbl"></g:Label>
 			</b:Modal>
 		</b:Container>
-		<g:VerticalPanel width="90%">
-		</g:VerticalPanel>
     </g:HTMLPanel>
+	</g:ScrollPanel>
 </ui:UiBinder>

@@ -21,7 +21,7 @@ public class SqliUser {
 		return EMF.get().createEntityManager();
 	}
 
-	public static SqliUser findUserById(Long id) {
+	public static SqliUser findSqliUser(Long id) {
 		if (id == null) {
 			return null;
 		}

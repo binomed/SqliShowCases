@@ -11,36 +11,43 @@
     
     <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
-    
-   <g:DockLayoutPanel unit="PC" height="500px" >
-	   <g:west size="20">
-	   		<b2:DateBox format="dd/mm/yyyy" autoClose="false" ui:field="datePicker" />
-	   </g:west>
-	   <g:center >
-	   		<g:VerticalPanel width="100%">
-	   		<b:NavTabs>
-	   			<b:NavLink text="{i18n.agendaDayOne}" ui:field="oneDay"  />
-	   			<b:NavLink text="{i18n.agendaDayThree}" ui:field="threeDay"  />
-	   			<b:NavLink text="{i18n.agendaWorkWeek}"  ui:field="workWeek"  />
-	   			<b:NavLink text="{i18n.agendaWeek}" ui:field="week"  />
-	   			<b:NavLink text="{i18n.agendaMonth}"  ui:field="month"  />
-	   		</b:NavTabs>
-	   		<g:AbsolutePanel width="100%" height="500px">
-	   			<g:at left="0" top="0">
-		 			<g:FlowPanel styleName="{res.css.contentCenter}" width="95%" height="500px" ui:field="calendarContent" />
-	   			</g:at>
-	   			<g:at left="0" top="0">
-		 			<g:FlowPanel styleName="{res.css.loadContent}" width="95%" height="500px" ui:field="panelLoad" >
-		 				<g:Label styleName="{res.css.loadText}" text="{i18n.agendaLoadEvents}"/>
-		 			</g:FlowPanel>
-	   			</g:at>
-	   		</g:AbsolutePanel>
-	   		</g:VerticalPanel>
-	   </g:center>
-	   <g:east size="20" >
-  			<b:Hero>
-  				   <b:Heading size="2" text="{i18n.agendaChat}" />
-  			</b:Hero>
-	   </g:east>
-   </g:DockLayoutPanel>
+   
+   <b:FluidRow>
+    <b:Column size="10">
+    	<b:FluidRow>
+    		<b:Column size="12">
+	   			<b2:DateBox format="dd/mm/yyyy" autoClose="false" ui:field="datePicker" />
+    		</b:Column>
+    	</b:FluidRow>
+    	<b:FluidRow>
+    		<b:Column size="12">
+		   		<g:VerticalPanel width="100%">
+			   		<b:NavTabs>
+			   			<b:NavLink text="{i18n.agendaDayOne}" ui:field="oneDay"  />
+			   			<b:NavLink text="{i18n.agendaDayThree}" ui:field="threeDay"  />
+			   			<b:NavLink text="{i18n.agendaWorkWeek}"  ui:field="workWeek"  />
+			   			<b:NavLink text="{i18n.agendaWeek}" ui:field="week"  />
+			   			<b:NavLink text="{i18n.agendaMonth}"  ui:field="month"  />
+			   		</b:NavTabs>
+			   		<g:AbsolutePanel width="100%" height="500px">
+			   			<g:at left="0" top="0">
+				 			<g:FlowPanel styleName="{res.css.contentCenter}" width="95%" height="500px" ui:field="calendarContent" />
+			   			</g:at>
+			   			<g:at left="0" top="0">
+				 			<g:FlowPanel styleName="{res.css.loadContent}" width="95%" height="500px" ui:field="panelLoad" >
+				 				<g:Label styleName="{res.css.loadText}" text="{i18n.agendaLoadEvents}"/>
+				 			</g:FlowPanel>
+			   			</g:at>
+			   		</g:AbsolutePanel>
+		   		</g:VerticalPanel>
+    		</b:Column>
+    	</b:FluidRow>
+    </b:Column>
+    <b:Column size="2">
+    	<b:Hero>
+  		   <b:Heading size="2" text="{i18n.agendaChat}" />
+  		</b:Hero>
+    </b:Column>
+   </b:FluidRow>    
+  
 </ui:UiBinder>

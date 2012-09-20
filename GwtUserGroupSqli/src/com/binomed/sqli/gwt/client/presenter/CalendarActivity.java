@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client.presenter;
 
 import com.binomed.sqli.gwt.client.IClientFactory;
+import com.binomed.sqli.gwt.client.event.ui.MessageEvent;
 import com.binomed.sqli.gwt.client.place.EventPlace;
 import com.binomed.sqli.gwt.client.presenter.itf.CalendarPresenter;
 import com.binomed.sqli.gwt.client.view.CalendarView;
@@ -58,7 +59,6 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 	@Override
 	public void start(AcceptsOneWidget panel, EventBus eventBus) {
 
-		factory.hideLoadMessage();
 		view = new CalendarView(this);
 		panel.setWidget(view);
 
@@ -102,7 +102,7 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 			@Override
 			public void onFailure(ServerFailure error) {
 				super.onFailure(error);
-				factory.showMessage("Erreur retrieve calendar events : " + error.getMessage());
+				factory.getEventBus().fireEvent(new MessageEvent("Erreur retrieve calendar events : " + error.getMessage()));
 				GWT.log("Retrieve events failed:" + error.getMessage());
 				view.hideLoad();
 			}

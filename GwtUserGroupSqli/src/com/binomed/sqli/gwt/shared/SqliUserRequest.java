@@ -12,7 +12,7 @@ public interface SqliUserRequest extends RequestContext {
 
 	Request<SqliUserProxy> findUser(String email);
 
-	Request<SqliUserProxy> findUserById(Long id);
+	Request<SqliUserProxy> findSqliUser(Long id);
 
 	Request<SqliUserProxy> verifyUser(String email, String password);
 

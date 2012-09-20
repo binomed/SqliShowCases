@@ -2,12 +2,17 @@ package com.binomed.sqli.gwt.client;
 
 import java.util.Date;
 
+import com.binomed.sqli.gwt.client.event.workflow.UserConnectedEvent;
+import com.binomed.sqli.gwt.client.event.workflow.UserDisconnectedEvent;
+import com.binomed.sqli.gwt.client.handler.workflow.UserConnectedHandler;
+import com.binomed.sqli.gwt.client.handler.workflow.UserDisconnectedHandler;
 import com.binomed.sqli.gwt.client.place.LoginPlace;
 import com.binomed.sqli.gwt.client.presenter.CalendarActivity.Display;
 import com.binomed.sqli.gwt.client.presenter.HomeActivity;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.resources.ProjectResources;
 import com.binomed.sqli.gwt.shared.SqliRequestFactory;
+import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.api.gwt.client.GoogleApiRequestTransport;
 import com.google.api.gwt.client.OAuth2Login;
 import com.google.api.gwt.services.calendar.shared.Calendar;
@@ -27,7 +32,10 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 
-public class ClientFactory implements IClientFactory {
+public class ClientFactory implements IClientFactory //
+		, UserDisconnectedHandler //
+		, UserConnectedHandler //
+{
 
 	// private static final Logger LOGGER = Logger.getLogger("ClientFacotry");
 
@@ -45,6 +53,8 @@ public class ClientFactory implements IClientFactory {
 	private static final String API_KEY = "AIzaSyCZCYiIpkDdgzmXVeJihy3p-lEj33m6WtQ";
 	private static final String APPLICATION_NAME = "CalendarSample/1.0";
 	private static final Calendar calendar = GWT.create(Calendar.class);
+
+	private SqliUserProxy userConected;
 
 	public ClientFactory() {
 		super();
@@ -74,6 +84,10 @@ public class ClientFactory implements IClientFactory {
 		calendar.initialize(eventBus, //
 				new GoogleApiRequestTransport(APPLICATION_NAME, API_KEY));
 
+		// Register curent events
+		eventBus.addHandler(UserConnectedEvent.TYPE, this);
+		eventBus.addHandler(UserDisconnectedEvent.TYPE, this);
+
 	}
 
 	public EventBus getEventBusHandler() {
@@ -96,12 +110,6 @@ public class ClientFactory implements IClientFactory {
 	}
 
 	@Override
-	public void showMessage(String message) {
-		homePresenter.eventClick(message);
-
-	}
-
-	@Override
 	public SqliRequestFactory getRequestFactory() {
 		return requestFactory;
 	}
@@ -109,17 +117,6 @@ public class ClientFactory implements IClientFactory {
 	@Override
 	public EventBus getEventBus() {
 		return eventBus;
-	}
-
-	@Override
-	public void showLoadMessage(String message) {
-		homePresenter.showLoadMessage(message);
-	}
-
-	@Override
-	public void hideLoadMessage() {
-		homePresenter.hideLoadMessage();
-
 	}
 
 	@Override
@@ -154,5 +151,21 @@ public class ClientFactory implements IClientFactory {
 	public void getEventDetails(String eventId, Receiver<Event> callBack) {
 		calendar.events().get(CALENDAR_ID, eventId).fire(callBack);
 
+	}
+
+	@Override
+	public SqliUserProxy getConnectedUser() {
+		return userConected;
+	}
+
+	@Override
+	public void userConnected(SqliUserProxy user) {
+		this.userConected = user;
+
+	}
+
+	@Override
+	public void userDisconnected() {
+		this.userConected = null;
 	}
 }

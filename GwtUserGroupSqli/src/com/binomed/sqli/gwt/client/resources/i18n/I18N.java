@@ -24,6 +24,10 @@ public interface I18N extends Constants {
 
 	String mainNavSupport();
 
+	String mainNavEdit();
+
+	String mainNavDisconnect();
+
 	/* Login View */
 	String loginTitle();
 
@@ -109,5 +113,7 @@ public interface I18N extends Constants {
 	String eventAddToYourCalendar();
 
 	String eventMap();
+
+	String eventAllDay();
 
 }

@@ -59,6 +59,7 @@ public class EventActivity implements Activity, EventPresenter {
 			@Override
 			public void onSuccess(Event response) {
 				view.showEvent(response);
+
 			}
 		});
 

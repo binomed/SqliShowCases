@@ -3,6 +3,8 @@ package com.binomed.sqli.gwt.client.presenter;
 import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.driver.SimpleSqliUserDriver;
 import com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor;
+import com.binomed.sqli.gwt.client.event.ui.MessageEvent;
+import com.binomed.sqli.gwt.client.event.workflow.UserConnectedEvent;
 import com.binomed.sqli.gwt.client.place.CalendarPlace;
 import com.binomed.sqli.gwt.client.place.CreateUserPlace;
 import com.binomed.sqli.gwt.client.presenter.itf.LoginPresenter;
@@ -25,6 +27,7 @@ public class LoginActivity implements Activity, LoginPresenter {
 	public interface Display extends IsWidget {
 
 		FlowPanel getUserEditor();
+
 	}
 
 	private final IClientFactory factory;
@@ -71,7 +74,7 @@ public class LoginActivity implements Activity, LoginPresenter {
 
 		if (StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getPassword())) {
 
-			factory.showMessage(I18N.instance.loginEmptyFields());
+			factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginEmptyFields()));
 		} else {
 
 			// factory.showLoadMessage(I18N.instance.loginVerification());
@@ -81,22 +84,17 @@ public class LoginActivity implements Activity, LoginPresenter {
 				@Override
 				public void onSuccess(SqliUserProxy user) {
 					if (user == null) {
-						// factory.showMessage("Unknow User");
-
-						// factory.showMessage(I18N.instance.loginUnkown());
+						factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginUnkown()));
 					} else {
-						// box.hide();
-						// factory.showMessage("User found");
-
+						factory.getEventBus().fireEvent(new UserConnectedEvent(user));
+						factory.getPlaceControler().goTo(new CalendarPlace());
 					}
-					// factory.hideLoadMessage();
-					factory.getPlaceControler().goTo(new CalendarPlace());
 
 				}
 
 				@Override
 				public void onFailure(ServerFailure error) {
-					factory.showMessage("Error Verify User: " + error.getMessage());
+					factory.getEventBus().fireEvent(new MessageEvent("Error Verify User: " + error.getMessage()));
 					super.onFailure(error);
 				}
 			});

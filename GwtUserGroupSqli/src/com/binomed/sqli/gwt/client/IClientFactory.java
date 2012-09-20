@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client;
 
 import com.binomed.sqli.gwt.shared.SqliRequestFactory;
+import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.api.gwt.services.calendar.shared.model.Event;
 import com.google.api.gwt.services.calendar.shared.model.Events;
 import com.google.gwt.place.shared.PlaceController;
@@ -18,13 +19,9 @@ public interface IClientFactory {
 
 	PlaceController getPlaceControler();
 
+	SqliUserProxy getConnectedUser();
+
 	void registerMainPanel(AcceptsOneWidget mainPanel);
-
-	void showMessage(String message);
-
-	void showLoadMessage(String message);
-
-	void hideLoadMessage();
 
 	void getListEvents(int start, int number, Receiver<Events> callBack);
 
