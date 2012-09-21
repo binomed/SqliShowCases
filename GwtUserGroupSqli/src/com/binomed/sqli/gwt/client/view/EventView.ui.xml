@@ -41,7 +41,7 @@
 	 				<b:Heading size="4" text="{i18n.eventHour}" /><b:ControlLabel ui:field="eventHour" styleName="{res.css.eventDetailsMaringLbl}"/>
 	 				<b:Heading size="4" text="{i18n.eventRoom}" /><b:ControlLabel ui:field="eventRoom" styleName="{res.css.eventDetailsMaringLbl}"/>
 	 				<g:HorizontalPanel>
-	 				<b:Button size="SMALL" styleName="icon-calendar" />
+	 				<b:Button size="SMALL" styleName="icon-calendar" ui:field="btnAddToCalendar" />
 	 				<b:ControlLabel styleName="{res.css.eventDetailsMaringLbl}"><ui:text from="{i18n.eventAddToYourCalendar}" /></b:ControlLabel>
 	 				</g:HorizontalPanel>
 	 			</b:Container>

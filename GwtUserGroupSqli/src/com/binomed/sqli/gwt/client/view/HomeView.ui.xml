@@ -15,9 +15,10 @@
                     <b:NavLink href="http://www.sqli.com" targetHistoryToken="_blank" text="{i18n.mainNavSQLI}" />
                     <b:NavLink ui:field="aPropos" text="{i18n.mainNavAbout}" />
                     <b:NavLink ui:field="support" text="{i18n.mainNavSupport}" />
+                    <b:NavLink ui:field="admin" text="{i18n.mainNavAdmin}" />
                 </b:Nav>
                 <b:Nav alignment="RIGHT" ui:field="userNav">
-                	<b:Dropdown text="test" ui:field="userDrop" rightDropdown="true">
+                	<b:Dropdown  ui:field="userDrop" rightDropdown="true">
                 		<b:NavLink icon="PENCIL" ui:field="userEdit" text="{i18n.mainNavEdit}"/>
                 		<b:NavLink icon="OFF" ui:field="userDisconnect" text="{i18n.mainNavDisconnect}"/>
                 	</b:Dropdown>

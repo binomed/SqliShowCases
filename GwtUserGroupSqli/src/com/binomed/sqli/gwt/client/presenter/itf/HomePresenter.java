@@ -15,4 +15,6 @@ public interface HomePresenter extends Presenter {
 
 	void disconnectUser();
 
+	void goToAdmin();
+
 }

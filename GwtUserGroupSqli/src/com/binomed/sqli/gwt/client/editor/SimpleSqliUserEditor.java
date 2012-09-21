@@ -3,11 +3,13 @@ package com.binomed.sqli.gwt.client.editor;
 import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.presenter.itf.LoginPresenter;
 import com.binomed.sqli.gwt.shared.model.SqliUserLogin;
+import com.github.gwtbootstrap.client.ui.Button;
 import com.github.gwtbootstrap.client.ui.PasswordTextBox;
 import com.github.gwtbootstrap.client.ui.TextBox;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -24,6 +26,8 @@ public class SimpleSqliUserEditor extends Composite implements //
 	TextBox email;
 	@UiField
 	PasswordTextBox password;
+	@UiField
+	Button btnConnexion;
 
 	private final IClientFactory clientFacotry;
 	private final LoginPresenter presenter;
@@ -54,6 +58,36 @@ public class SimpleSqliUserEditor extends Composite implements //
 	@UiHandler("linkCreate")
 	public void onClickLinkCreate(ClickEvent event) {
 		presenter.createUser();
+	}
+
+	@UiHandler("password")
+	public void onKeyPressPassword(KeyPressEvent event) {
+		onKeyPress(event);
+	}
+
+	@UiHandler("email")
+	public void onKeyPressEmail(KeyPressEvent event) {
+		onKeyPress(event);
+
+	}
+
+	private void onKeyPress(KeyPressEvent event) {
+		presenter.keyPress(event);
+	}
+
+	public void desactivFields() {
+		enableFields(false);
+	}
+
+	public void activFields() {
+		enableFields(true);
+
+	}
+
+	private void enableFields(boolean enabled) {
+		email.setEnabled(enabled);
+		password.setEnabled(enabled);
+		btnConnexion.setEnabled(enabled);
 	}
 
 }

@@ -3,8 +3,12 @@ package com.binomed.sqli.gwt.client.presenter;
 import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.driver.SimpleSqliUserDriver;
 import com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor;
+import com.binomed.sqli.gwt.client.event.ui.HideMessageEvent;
 import com.binomed.sqli.gwt.client.event.ui.MessageEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserConnectedEvent;
+import com.binomed.sqli.gwt.client.event.workflow.UserDisconnectedEvent;
+import com.binomed.sqli.gwt.client.handler.workflow.CallBackHiddenMessage;
+import com.binomed.sqli.gwt.client.handler.workflow.UserDisconnectedHandler;
 import com.binomed.sqli.gwt.client.place.CalendarPlace;
 import com.binomed.sqli.gwt.client.place.CreateUserPlace;
 import com.binomed.sqli.gwt.client.presenter.itf.LoginPresenter;
@@ -14,6 +18,8 @@ import com.binomed.sqli.gwt.client.view.LoginView;
 import com.binomed.sqli.gwt.shared.model.SqliUserLogin;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.gwt.activity.shared.Activity;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -22,7 +28,10 @@ import com.google.web.bindery.requestfactory.shared.Receiver;
 import com.google.web.bindery.requestfactory.shared.Request;
 import com.google.web.bindery.requestfactory.shared.ServerFailure;
 
-public class LoginActivity implements Activity, LoginPresenter {
+public class LoginActivity implements Activity //
+		, LoginPresenter //
+		, UserDisconnectedHandler //
+{
 
 	public interface Display extends IsWidget {
 
@@ -66,6 +75,13 @@ public class LoginActivity implements Activity, LoginPresenter {
 		view.getUserEditor().add(editor);
 		driver = new SimpleSqliUserDriver(factory, editor);
 
+		SqliUserProxy curentUser = factory.getConnectedUser();
+		if (curentUser != null) {
+			driver.desactivForUser(curentUser);
+		}
+
+		factory.getEventBus().addHandler(UserDisconnectedEvent.TYPE, this);
+
 	}
 
 	@Override
@@ -74,27 +90,34 @@ public class LoginActivity implements Activity, LoginPresenter {
 
 		if (StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getPassword())) {
 
-			factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginEmptyFields()));
+			factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginEmptyFields(), true));
 		} else {
 
-			// factory.showLoadMessage(I18N.instance.loginVerification());
+			factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginVerification(), false));
 			Request<SqliUserProxy> request = factory.getRequestFactory().userRequest().verifyUser(user.getEmail(), user.getPassword());
 			request.fire(new Receiver<SqliUserProxy>() {
 
 				@Override
 				public void onSuccess(SqliUserProxy user) {
 					if (user == null) {
-						factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginUnkown()));
+						factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginUnkown(), true));
 					} else {
 						factory.getEventBus().fireEvent(new UserConnectedEvent(user));
-						factory.getPlaceControler().goTo(new CalendarPlace());
+						driver.desactivForUser(user);
+						factory.getEventBus().fireEvent(new HideMessageEvent(new CallBackHiddenMessage() {
+
+							@Override
+							public void hidden() {
+								factory.getPlaceControler().goTo(new CalendarPlace());
+							}
+						}));
 					}
 
 				}
 
 				@Override
 				public void onFailure(ServerFailure error) {
-					factory.getEventBus().fireEvent(new MessageEvent("Error Verify User: " + error.getMessage()));
+					factory.getEventBus().fireEvent(new MessageEvent("Error Verify User: " + error.getMessage(), true));
 					super.onFailure(error);
 				}
 			});
@@ -106,6 +129,18 @@ public class LoginActivity implements Activity, LoginPresenter {
 	public void createUser() {
 		factory.getPlaceControler().goTo(new CreateUserPlace());
 
+	}
+
+	@Override
+	public void userDisconnected() {
+		driver.activFields();
+	}
+
+	@Override
+	public void keyPress(KeyPressEvent event) {
+		if (event.getNativeEvent().getKeyCode() == KeyCodes.KEY_ENTER) {
+			formSubmit();
+		}
 	}
 
 }

@@ -102,7 +102,7 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 			@Override
 			public void onFailure(ServerFailure error) {
 				super.onFailure(error);
-				factory.getEventBus().fireEvent(new MessageEvent("Erreur retrieve calendar events : " + error.getMessage()));
+				factory.getEventBus().fireEvent(new MessageEvent("Erreur retrieve calendar events : " + error.getMessage(), true));
 				GWT.log("Retrieve events failed:" + error.getMessage());
 				view.hideLoad();
 			}

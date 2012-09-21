@@ -4,7 +4,7 @@ import com.google.gwt.event.shared.EventHandler;
 
 public interface MessageHandler extends EventHandler {
 
-	void onMessage(String message);
+	void onMessage(String message, boolean showClose);
 
 	void onError(Throwable exception);
 

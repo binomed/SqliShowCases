@@ -11,9 +11,11 @@ import com.github.gwtbootstrap.client.ui.Paragraph;
 import com.google.api.gwt.services.calendar.shared.model.Event;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -65,6 +67,11 @@ public class EventView extends Composite implements //
 
 	public Widget hasWidget() {
 		return this;
+	}
+
+	@UiHandler("btnAddToCalendar")
+	public void onAddToCalendar(ClickEvent event) {
+		presenter.addToCalendar();
 	}
 
 	@Override

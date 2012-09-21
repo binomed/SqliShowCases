@@ -18,7 +18,7 @@ public class EditUserPlace extends Place {
 		return user;
 	}
 
-	@Prefix("create")
+	@Prefix("edit")
 	public static class Tokenizer implements PlaceTokenizer<EditUserPlace> {
 
 		@Override

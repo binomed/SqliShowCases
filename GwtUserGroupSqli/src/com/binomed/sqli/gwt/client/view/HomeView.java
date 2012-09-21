@@ -1,10 +1,14 @@
 package com.binomed.sqli.gwt.client.view;
 
+import com.binomed.sqli.gwt.client.handler.workflow.CallBackHiddenMessage;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
+import com.github.gwtbootstrap.client.ui.Dropdown;
 import com.github.gwtbootstrap.client.ui.Modal;
 import com.github.gwtbootstrap.client.ui.Nav;
+import com.github.gwtbootstrap.client.ui.event.HiddenEvent;
+import com.github.gwtbootstrap.client.ui.event.HiddenHandler;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -17,6 +21,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HomeView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.HomeActivity.Display //
+		, HiddenHandler //
 {
 
 	private static HomeViewUiBinder uiBinder = GWT.create(HomeViewUiBinder.class);
@@ -28,14 +33,19 @@ public class HomeView extends Composite implements //
 
 	@UiField
 	Nav userNav;
+	@UiField
+	Dropdown userDrop;
 
 	private final HomePresenter presenter;
+
+	private CallBackHiddenMessage callBackModalHidden;
 
 	public HomeView(HomePresenter presenter) {
 		// Initialization
 		initWidget(uiBinder.createAndBindUi(this));
 		this.presenter = presenter;
 		userNav.setVisible(false);
+		modal.addHiddenHandler(this);
 	}
 
 	/*
@@ -50,6 +60,11 @@ public class HomeView extends Composite implements //
 	@UiHandler("support")
 	public void onSupportClick(ClickEvent event) {
 		presenter.eventClick("Support");
+	}
+
+	@UiHandler("admin")
+	public void onAdminClick(ClickEvent event) {
+		presenter.goToAdmin();
 	}
 
 	@UiHandler("brand")
@@ -68,13 +83,7 @@ public class HomeView extends Composite implements //
 	}
 
 	@Override
-	public void showDialog(String content) {
-
-		showDialog(content, true);
-	}
-
-	private void showDialog(String title, boolean closable) {
-
+	public void showDialog(String title, boolean closable) {
 		boolean previousShow = StringUtils.isNotEmpty(modal.getTitle());
 		modal.setTitle(title);
 		modal.setCloseVisible(closable);
@@ -97,13 +106,8 @@ public class HomeView extends Composite implements //
 	}
 
 	@Override
-	public void showLoadMessage(String message) {
-		showDialog(message, false);
-
-	}
-
-	@Override
-	public void hideLoadMessage() {
+	public void hideLoadMessage(CallBackHiddenMessage callBack) {
+		this.callBackModalHidden = callBack;
 		modal.setTitle("");
 		modal.hide();
 
@@ -112,13 +116,24 @@ public class HomeView extends Composite implements //
 	@Override
 	public void showUser(SqliUserProxy user) {
 		userNav.setVisible(true);
-		userNav.setTitle(user.getFirstName() + " " + user.getName());
+		String text = user.getFirstName() + " " + user.getName();
+		userDrop.setText(text);
+		userDrop.setTitle(text);
+		userNav.setTitle(text);
 
 	}
 
 	@Override
 	public void hideUser() {
 		userNav.setVisible(false);
+	}
+
+	@Override
+	public void onHidden(HiddenEvent hiddenEvent) {
+		if (this.callBackModalHidden != null) {
+			callBackModalHidden.hidden();
+		}
+		this.callBackModalHidden = null;
 	}
 
 }

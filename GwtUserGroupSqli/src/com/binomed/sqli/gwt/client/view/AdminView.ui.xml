@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	 ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	 ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"   
+	 ui:generateLocales="default"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+    xmlns:b2="urn:import:com.github.gwtbootstrap.datepicker.client.ui"
+    xmlns:c="com.bradrydzewski.gwt.calendar.client"
+     >
+    
+    <ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
+	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
+   
+   <b:FluidContainer>
+    	<b:DataGrid ui:field="dataUsers"
+    	bordered="true"
+    	condensed="true"
+    	striped="true"
+    	height="600px"
+    	width="800px"
+    	styleName="{res.css.contentCenter}"
+    	/>
+    	<b:Button ui:field="remove" type="INVERSE" text="{i18n.adminBtnDelete}"/>
+   </b:FluidContainer>
+  
+</ui:UiBinder>

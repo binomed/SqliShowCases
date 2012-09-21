@@ -11,6 +11,17 @@ public interface I18N extends Constants {
 
 	String generalFormInvalid();
 
+	/* Calendar */
+	String calendarChoose();
+
+	String calendarBtn();
+
+	String calendarMissingAuthorisation();
+
+	String calendarChooseCalendar();
+
+	String calendarAddWell();
+
 	/* MainWindow */
 	String mainTitle();
 
@@ -23,6 +34,8 @@ public interface I18N extends Constants {
 	String mainNavAbout();
 
 	String mainNavSupport();
+
+	String mainNavAdmin();
 
 	String mainNavEdit();
 
@@ -72,6 +85,12 @@ public interface I18N extends Constants {
 
 	String createBtnCreate();
 
+	String createBtnSave();
+
+	String createLoadMsgCreate();
+
+	String createLoadMsgEdit();
+
 	String createTxtWhyTitle();
 
 	String createTxtWhy();
@@ -115,5 +134,18 @@ public interface I18N extends Constants {
 	String eventMap();
 
 	String eventAllDay();
+
+	/* Admin */
+	String adminColEmail();
+
+	String adminColFirstName();
+
+	String adminColLastName();
+
+	String adminLoadDatas();
+
+	String adminNoUsers();
+
+	String adminBtnDelete();
 
 }

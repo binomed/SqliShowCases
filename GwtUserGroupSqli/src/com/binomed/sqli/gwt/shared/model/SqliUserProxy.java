@@ -8,6 +8,8 @@ public interface SqliUserProxy extends EntityProxy {
 
 	Long getId();
 
+	void setId(Long id);
+
 	String getPassword();
 
 	void setPassword(String password);

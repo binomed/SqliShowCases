@@ -8,12 +8,16 @@ public class MessageEvent extends BeanEvent<String, MessageHandler> {
 
 	public static GwtEvent.Type<MessageHandler> TYPE = new Type<MessageHandler>();
 
-	public MessageEvent(String bean) {
+	private final boolean showClose;
+
+	public MessageEvent(String bean, boolean showClose) {
 		super(bean);
+		this.showClose = showClose;
 	}
 
 	public MessageEvent(Throwable exception) {
 		super(exception);
+		this.showClose = true;
 	}
 
 	@Override
@@ -26,7 +30,7 @@ public class MessageEvent extends BeanEvent<String, MessageHandler> {
 		if (getException() != null) {
 			handler.onError(getException());
 		} else {
-			handler.onMessage(getBean());
+			handler.onMessage(getBean(), showClose);
 		}
 
 	}

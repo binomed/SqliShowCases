@@ -34,6 +34,18 @@ public class SqliUser {
 		}
 	}
 
+	public static List<SqliUser> findAllUsers() {
+		EntityManager em = entityManager();
+		try {
+			List<SqliUser> list = em.createQuery("select o from SqliUser o").getResultList();
+			// force to get all the employees
+			list.size();
+			return list;
+		} finally {
+			em.close();
+		}
+	}
+
 	public static SqliUser verifyUser(String email, String password) {
 		if (email == null || password == null) {
 			return null;
@@ -72,6 +84,25 @@ public class SqliUser {
 		EntityManager em = entityManager();
 		try {
 			em.persist(this);
+		} finally {
+			em.close();
+		}
+	}
+
+	public void update() {
+		EntityManager em = entityManager();
+		try {
+			em.merge(this);
+		} finally {
+			em.close();
+		}
+	}
+
+	public void remove() {
+		EntityManager em = entityManager();
+		try {
+			SqliUser attached = em.find(SqliUser.class, this.id);
+			em.remove(attached);
 		} finally {
 			em.close();
 		}

@@ -23,6 +23,7 @@ public class EventActivity implements Activity, EventPresenter {
 	private final EventPlace place;
 
 	private Display view;
+	private Event curentEvent;
 
 	public EventActivity(IClientFactory factory, EventPlace place) {
 		super();
@@ -58,11 +59,17 @@ public class EventActivity implements Activity, EventPresenter {
 
 			@Override
 			public void onSuccess(Event response) {
+				EventActivity.this.curentEvent = response;
 				view.showEvent(response);
 
 			}
 		});
 
+	}
+
+	@Override
+	public void addToCalendar() {
+		factory.addEventToCalendar(curentEvent);
 	}
 
 }
