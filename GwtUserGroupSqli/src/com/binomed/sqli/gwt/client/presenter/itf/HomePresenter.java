@@ -17,4 +17,8 @@ public interface HomePresenter extends Presenter {
 
 	void goToAdmin();
 
+	void goToEvents();
+
+	// void openId();
+
 }

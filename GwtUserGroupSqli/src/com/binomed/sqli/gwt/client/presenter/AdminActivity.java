@@ -5,6 +5,7 @@ import java.util.List;
 import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.presenter.itf.AdminPresenter;
 import com.binomed.sqli.gwt.client.view.AdminView;
+import com.binomed.sqli.gwt.shared.SqliUserRequest;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.event.shared.EventBus;
@@ -67,7 +68,22 @@ public class AdminActivity implements Activity, AdminPresenter {
 	@Override
 	public void deleteUser(SqliUserProxy user) {
 		factory.getRequestFactory().userRequest().remove().using(user).fire(new Receiver<Void>() {
-			// factory.getRequestFactoryContext().remove().using(user).fire(new Receiver<Void>() {
+
+			@Override
+			public void onSuccess(Void response) {
+				getAllUsers();
+
+			}
+		});
+
+	}
+
+	@Override
+	public void switchAdminUser(SqliUserProxy user) {
+		SqliUserRequest context = factory.getRequestFactory().userRequest();
+		SqliUserProxy copyUser = context.edit(user);
+		copyUser.setAdmin(!copyUser.isAdmin());
+		context.update().using(user).fire(new Receiver<Void>() {
 
 			@Override
 			public void onSuccess(Void response) {

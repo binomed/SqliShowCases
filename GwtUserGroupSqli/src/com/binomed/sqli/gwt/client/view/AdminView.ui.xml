@@ -13,15 +13,22 @@
 	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
    
    <b:FluidContainer>
+   		<b:Pagination ui:field="pagination" />
     	<b:DataGrid ui:field="dataUsers"
     	bordered="true"
     	condensed="true"
     	striped="true"
-    	height="600px"
-    	width="800px"
+    	height="300px"
+    	width="100%"
     	styleName="{res.css.contentCenter}"
     	/>
-    	<b:Button ui:field="remove" type="INVERSE" text="{i18n.adminBtnDelete}"/>
+    	<b:FluidContainer styleName="{res.css.contentCenter}">
+	    	<b:Button ui:field="remove" type="INVERSE" text="{i18n.adminBtnDelete}"/>
+	    	<g:HTMLPanel>
+	    	&nbsp;
+	    	</g:HTMLPanel>
+	    	<b:Button ui:field="switchAdmin" type="INVERSE" text="{i18n.adminBtnAdmin}"/>
+    	</b:FluidContainer>
    </b:FluidContainer>
   
 </ui:UiBinder>

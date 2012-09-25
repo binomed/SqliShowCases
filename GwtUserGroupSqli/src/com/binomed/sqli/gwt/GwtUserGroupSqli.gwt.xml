@@ -32,6 +32,9 @@
   <!-- Maps -->
   <inherits name="com.google.gwt.ajaxloader.AjaxLoader" />
   <inherits name="com.google.maps.gwt.GoogleMaps" />
+  
+  <!-- HTML5 integrations -->
+  <inherits name="com.google.gwt.storage.client.Storage" />
 
   <!-- Other module inherits                                      -->
   <inherits name="com.github.gwtbootstrap.Bootstrap"/>
@@ -46,6 +49,10 @@
   <!-- Use ClientFactoryImpl by default -->
    <replace-with class="com.binomed.sqli.gwt.client.ClientFactory">
    <when-type-is class="com.binomed.sqli.gwt.client.IClientFactory"/>
+   </replace-with>
+   
+   <replace-with class="com.binomed.sqli.gwt.client.storage.ImplSqliStorage">
+   <when-type-is class="com.binomed.sqli.gwt.client.storage.ISqliStorage"/>
    </replace-with>
    
    <!-- Super Dev Mode -->

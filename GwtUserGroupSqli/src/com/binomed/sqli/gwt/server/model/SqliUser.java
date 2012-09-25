@@ -127,6 +127,8 @@ public class SqliUser {
 
 	private boolean contactAllowed;
 
+	private boolean admin;
+
 	@Version
 	@Column(name = "version")
 	private Integer version;
@@ -177,6 +179,14 @@ public class SqliUser {
 
 	public void setContactAllowed(boolean contactAllowed) {
 		this.contactAllowed = contactAllowed;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	public Integer getVersion() {

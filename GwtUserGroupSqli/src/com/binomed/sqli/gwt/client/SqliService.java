@@ -1,5 +1,9 @@
 package com.binomed.sqli.gwt.client;
 
+import java.util.List;
+
+import com.binomed.sqli.gwt.shared.model.OpenIdProtocls;
+import com.binomed.sqli.gwt.shared.model.UserOpenId;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
@@ -10,4 +14,8 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface SqliService extends RemoteService {
 
 	String testService();
+
+	UserOpenId authenticateOpenId(String provider_url);
+
+	List<OpenIdProtocls> getOpenIdProtocols();
 }

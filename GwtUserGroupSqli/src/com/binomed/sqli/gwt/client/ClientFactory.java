@@ -13,6 +13,7 @@ import com.binomed.sqli.gwt.client.presenter.HomeActivity;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.resources.ProjectResources;
 import com.binomed.sqli.gwt.client.resources.i18n.I18N;
+import com.binomed.sqli.gwt.client.storage.ISqliStorage;
 import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.binomed.sqli.gwt.shared.SqliRequestFactory;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
@@ -62,6 +63,7 @@ public class ClientFactory implements IClientFactory //
 	private final ActivityManager activityManager;
 	private final HomePresenter homePresenter;
 	private final SqliRequestFactory requestFactory;
+	private final ISqliStorage sqliStorage;
 
 	// private static final String CALENDAR_ID = "jean.francois.garreau@gmail.com";
 	private static final String CALENDAR_ID = "ahkgurr9feh3leouhc2na4hbvo@group.calendar.google.com";
@@ -78,6 +80,7 @@ public class ClientFactory implements IClientFactory //
 
 		ProjectResources.instance.css().ensureInjected();
 
+		this.sqliStorage = GWT.create(ISqliStorage.class);
 		this.rpcService = GWT.create(SqliService.class);
 		this.requestFactory = GWT.create(SqliRequestFactory.class);
 		this.requestFactory.initialize(eventBus);
@@ -250,5 +253,10 @@ public class ClientFactory implements IClientFactory //
 			}
 		});
 
+	}
+
+	@Override
+	public ISqliStorage getAppStorage() {
+		return this.sqliStorage;
 	}
 }

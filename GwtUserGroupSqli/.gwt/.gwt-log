@@ -1,0 +1,298 @@
+Public resources found in...
+Translatable source found in...
+Found 0 cached/archived units.  Used 0 / 3471 units from cache.
+Validating units:
+   [ERROR] Errors in 'file:/C:/tools/projets/SqliShowCases/GwtUserGroupSqli/.apt_generated/com/binomed/sqli/gwt/shared/SqliRequestFactoryDeobfuscatorBuilder.java'
+      [ERROR] Line 7: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.Deobfuscator.Builder; did you forget to inherit a required module?
+      [ERROR] Line 9: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.OperationKey; did you forget to inherit a required module?
+      [ERROR] Line 10: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.OperationData.Builder; did you forget to inherit a required module?
+Removing invalidated units
+Finding entry point classes
+Rebinding com.google.gwt.i18n.client.impl.LocaleInfoImpl
+   Invoking generator com.google.gwt.i18n.rebind.LocaleInfoGenerator
+      Processing interface com.google.gwt.i18n.client.constants.NumberConstantsImpl
+         Generating method body for notANumber()
+         Generating method body for currencyPattern()
+         Generating method body for decimalPattern()
+         Generating method body for decimalSeparator()
+         Generating method body for defCurrencyCode()
+         Generating method body for exponentialSymbol()
+         Generating method body for globalCurrencyPattern()
+         Generating method body for groupingSeparator()
+         Generating method body for infinity()
+         Generating method body for minusSign()
+         Generating method body for monetaryGroupingSeparator()
+         Generating method body for monetarySeparator()
+         Generating method body for percent()
+         Generating method body for percentPattern()
+         Generating method body for perMill()
+         Generating method body for plusSign()
+         Generating method body for scientificPattern()
+         Generating method body for simpleCurrencyPattern()
+         Generating method body for zeroDigit()
+   Adding '3' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SqliUserEditor.SqliUserUiBinder
+   Adding '2' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SqliUserEditor_SqliUserUiBinderImpl_designTime1348584956885.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.editor.SqliUserEditor_SqliUserUiBinderImpl_designTime1348584956885.Template
+         Generating method body for html1()
+         Generating method body for html2()
+         Generating method body for html3()
+         Generating method body for html4()
+         Generating method body for html5()
+         Generating method body for html6()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SqliUserEditor_SqliUserUiBinderImpl_designTime1348584956885_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.resources.ProjectResources
+   Invoking generator com.google.gwt.resources.rebind.context.InlineClientBundleGenerator
+      Preparing method gwt
+         Adding image 'com.binomed.sqli.gwt.client.resources.ProjectResources.gwt'
+      Preparing method logoSqli
+         Adding image 'com.binomed.sqli.gwt.client.resources.ProjectResources.logoSqli'
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.resources.i18n.I18N
+   Invoking generator com.google.gwt.i18n.rebind.LocalizableGenerator
+      Processing interface com.binomed.sqli.gwt.client.resources.i18n.I18N
+         Generating method body for generalFormInvalid()
+         Generating method body for calendarChoose()
+         Generating method body for calendarBtn()
+         Generating method body for calendarMissingAuthorisation()
+         Generating method body for calendarChooseCalendar()
+         Generating method body for calendarAddWell()
+         Generating method body for mainTitle()
+         Generating method body for mainSubtitle()
+         Generating method body for mainNavBrand()
+         Generating method body for mainNavSQLI()
+         Generating method body for mainNavAbout()
+         Generating method body for mainNavSupport()
+         Generating method body for mainNavAdmin()
+         Generating method body for mainNavEdit()
+         Generating method body for mainNavDisconnect()
+         Generating method body for loginTitle()
+         Generating method body for loginLblLogin()
+         Generating method body for loginHoverLogin()
+         Generating method body for loginLblPassword()
+         Generating method body for loginHoverPassword()
+         Generating method body for loginBtnConnexion()
+         Generating method body for loginLnkNotAccess()
+         Generating method body for loginLnkCreate()
+         Generating method body for loginVerification()
+         Generating method body for loginEmptyFields()
+         Generating method body for loginUnkown()
+         Generating method body for createTitleForm()
+         Generating method body for createLblName()
+         Generating method body for createHoverFirstName()
+         Generating method body for createHoverLastName()
+         Generating method body for createLblEmail()
+         Generating method body for createHoverEmail()
+         Generating method body for createLblPassword()
+         Generating method body for createLblPasswordConfirm()
+         Generating method body for createCheckContact()
+         Generating method body for createBtnCreate()
+         Generating method body for createBtnSave()
+         Generating method body for createLoadMsgCreate()
+         Generating method body for createLoadMsgEdit()
+         Generating method body for createTxtWhyTitle()
+         Generating method body for createTxtWhy()
+         Generating method body for createTxtWinTitle()
+         Generating method body for createTxtWin()
+         Generating method body for agendaDayOne()
+         Generating method body for agendaDayThree()
+         Generating method body for agendaWorkWeek()
+         Generating method body for agendaWeek()
+         Generating method body for agendaMonth()
+         Generating method body for agendaChat()
+         Generating method body for agendaLoadEvents()
+         Generating method body for eventTitle()
+         Generating method body for eventBackEvents()
+         Generating method body for eventSpeaker()
+         Generating method body for eventMainInfo()
+         Generating method body for eventDate()
+         Generating method body for eventHour()
+         Generating method body for eventRoom()
+         Generating method body for eventAddToYourCalendar()
+         Generating method body for eventMap()
+         Generating method body for eventAllDay()
+         Generating method body for adminColEmail()
+         Generating method body for adminColFirstName()
+         Generating method body for adminColLastName()
+         Generating method body for adminColContactMail()
+         Generating method body for adminColIsAdmin()
+         Generating method body for adminLoadDatas()
+         Generating method body for adminNoUsers()
+         Generating method body for adminBtnDelete()
+         Generating method body for adminBtnAdmin()
+         Generating method body for adminBtnNotAdmin()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SqliUserEditor.SqliUserUiBinder
+   Adding '2' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SqliUserEditor_SqliUserUiBinderImpl_designTime1348584960736.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.editor.SqliUserEditor_SqliUserUiBinderImpl_designTime1348584960736.Template
+         Generating method body for html1()
+         Generating method body for html2()
+         Generating method body for html3()
+         Generating method body for html4()
+         Generating method body for html5()
+         Generating method body for html6()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SqliUserEditor_SqliUserUiBinderImpl_designTime1348584960736_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units
+Public resources found in...
+Translatable source found in...
+Found 3471 cached/archived units.  Used 3471 / 3471 units from cache.
+Validating units:
+   [ERROR] Errors in 'file:/C:/tools/projets/SqliShowCases/GwtUserGroupSqli/.apt_generated/com/binomed/sqli/gwt/shared/SqliRequestFactoryDeobfuscatorBuilder.java'
+      [ERROR] Line 7: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.Deobfuscator.Builder; did you forget to inherit a required module?
+      [ERROR] Line 9: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.OperationKey; did you forget to inherit a required module?
+      [ERROR] Line 10: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.OperationData.Builder; did you forget to inherit a required module?
+Removing invalidated units
+Finding entry point classes
+Rebinding com.google.gwt.i18n.client.impl.LocaleInfoImpl
+   Invoking generator com.google.gwt.i18n.rebind.LocaleInfoGenerator
+      Processing interface com.google.gwt.i18n.client.constants.NumberConstantsImpl
+         Generating method body for notANumber()
+         Generating method body for currencyPattern()
+         Generating method body for decimalPattern()
+         Generating method body for decimalSeparator()
+         Generating method body for defCurrencyCode()
+         Generating method body for exponentialSymbol()
+         Generating method body for globalCurrencyPattern()
+         Generating method body for groupingSeparator()
+         Generating method body for infinity()
+         Generating method body for minusSign()
+         Generating method body for monetaryGroupingSeparator()
+         Generating method body for monetarySeparator()
+         Generating method body for percent()
+         Generating method body for percentPattern()
+         Generating method body for perMill()
+         Generating method body for plusSign()
+         Generating method body for scientificPattern()
+         Generating method body for simpleCurrencyPattern()
+         Generating method body for zeroDigit()
+   Adding '3' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor.SimpleSqliUserUiBinder
+   Adding '2' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587389374.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587389374.Template
+         Generating method body for html1()
+         Generating method body for html2()
+         Generating method body for html3()
+         Generating method body for html4()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587389374_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.resources.ProjectResources
+   Invoking generator com.google.gwt.resources.rebind.context.InlineClientBundleGenerator
+      Preparing method gwt
+         Adding image 'com.binomed.sqli.gwt.client.resources.ProjectResources.gwt'
+      Preparing method logoSqli
+         Adding image 'com.binomed.sqli.gwt.client.resources.ProjectResources.logoSqli'
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.resources.i18n.I18N
+   Invoking generator com.google.gwt.i18n.rebind.LocalizableGenerator
+      Processing interface com.binomed.sqli.gwt.client.resources.i18n.I18N
+         Generating method body for generalFormInvalid()
+         Generating method body for calendarChoose()
+         Generating method body for calendarBtn()
+         Generating method body for calendarMissingAuthorisation()
+         Generating method body for calendarChooseCalendar()
+         Generating method body for calendarAddWell()
+         Generating method body for mainTitle()
+         Generating method body for mainSubtitle()
+         Generating method body for mainNavBrand()
+         Generating method body for mainNavSQLI()
+         Generating method body for mainNavAbout()
+         Generating method body for mainNavSupport()
+         Generating method body for mainNavAdmin()
+         Generating method body for mainNavEdit()
+         Generating method body for mainNavDisconnect()
+         Generating method body for loginTitle()
+         Generating method body for loginLblLogin()
+         Generating method body for loginHoverLogin()
+         Generating method body for loginLblPassword()
+         Generating method body for loginHoverPassword()
+         Generating method body for loginBtnConnexion()
+         Generating method body for loginLnkNotAccess()
+         Generating method body for loginLnkCreate()
+         Generating method body for loginVerification()
+         Generating method body for loginEmptyFields()
+         Generating method body for loginUnkown()
+         Generating method body for createTitleForm()
+         Generating method body for createLblName()
+         Generating method body for createHoverFirstName()
+         Generating method body for createHoverLastName()
+         Generating method body for createLblEmail()
+         Generating method body for createHoverEmail()
+         Generating method body for createLblPassword()
+         Generating method body for createLblPasswordConfirm()
+         Generating method body for createCheckContact()
+         Generating method body for createBtnCreate()
+         Generating method body for createBtnSave()
+         Generating method body for createLoadMsgCreate()
+         Generating method body for createLoadMsgEdit()
+         Generating method body for createTxtWhyTitle()
+         Generating method body for createTxtWhy()
+         Generating method body for createTxtWinTitle()
+         Generating method body for createTxtWin()
+         Generating method body for agendaDayOne()
+         Generating method body for agendaDayThree()
+         Generating method body for agendaWorkWeek()
+         Generating method body for agendaWeek()
+         Generating method body for agendaMonth()
+         Generating method body for agendaChat()
+         Generating method body for agendaLoadEvents()
+         Generating method body for eventTitle()
+         Generating method body for eventBackEvents()
+         Generating method body for eventSpeaker()
+         Generating method body for eventMainInfo()
+         Generating method body for eventDate()
+         Generating method body for eventHour()
+         Generating method body for eventRoom()
+         Generating method body for eventAddToYourCalendar()
+         Generating method body for eventMap()
+         Generating method body for eventAllDay()
+         Generating method body for adminColEmail()
+         Generating method body for adminColFirstName()
+         Generating method body for adminColLastName()
+         Generating method body for adminColContactMail()
+         Generating method body for adminColIsAdmin()
+         Generating method body for adminLoadDatas()
+         Generating method body for adminNoUsers()
+         Generating method body for adminBtnDelete()
+         Generating method body for adminBtnAdmin()
+         Generating method body for adminBtnNotAdmin()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor.SimpleSqliUserUiBinder
+   Adding '2' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587390527.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587390527.Template
+         Generating method body for html1()
+         Generating method body for html2()
+         Generating method body for html3()
+         Generating method body for html4()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587390527_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units

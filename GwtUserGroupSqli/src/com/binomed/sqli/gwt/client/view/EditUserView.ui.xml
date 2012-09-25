@@ -11,7 +11,7 @@
     	<b:FluidRow>
     		<b:Column size="6" offset="4">
    				<b:Hero>
-					<g:FlowPanel ui:field="userEditor"/>
+					<g:FlowPanel ui:field="userEditor" styleName="{res.css.contentCenter}"/>
 				</b:Hero>
     		</b:Column>
     	</b:FluidRow>

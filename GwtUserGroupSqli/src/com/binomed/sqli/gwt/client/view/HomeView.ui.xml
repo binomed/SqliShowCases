@@ -16,6 +16,10 @@
                     <b:NavLink ui:field="aPropos" text="{i18n.mainNavAbout}" />
                     <b:NavLink ui:field="support" text="{i18n.mainNavSupport}" />
                     <b:NavLink ui:field="admin" text="{i18n.mainNavAdmin}" />
+                    <b:NavLink ui:field="events" text="{i18n.mainNavEvents}" />
+                    <!-- 
+                    <b:NavLink ui:field="logOpenId" text="OPEN ID" />
+                     -->
                 </b:Nav>
                 <b:Nav alignment="RIGHT" ui:field="userNav">
                 	<b:Dropdown  ui:field="userDrop" rightDropdown="true">

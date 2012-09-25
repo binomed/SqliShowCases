@@ -16,8 +16,6 @@
 	   	<b:Column size="12">
    	   		<g:HorizontalPanel>
 				<b:Heading size="3" text="{i18n.eventTitle}" />
-	   	   		<g:HTMLPanel styleName="{res.css.headerDivider}" />
-				<b:Heading size="3" text="{i18n.eventBackEvents}" ui:field="backToEvents"  /> 
 		 </g:HorizontalPanel>
 	   	</b:Column>
 	   </b:FluidRow> 

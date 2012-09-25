@@ -7,4 +7,6 @@ public interface AdminPresenter extends Presenter {
 
 	void deleteUser(SqliUserProxy user);
 
+	void switchAdminUser(SqliUserProxy user);
+
 }

@@ -7,6 +7,7 @@ import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.github.gwtbootstrap.client.ui.Dropdown;
 import com.github.gwtbootstrap.client.ui.Modal;
 import com.github.gwtbootstrap.client.ui.Nav;
+import com.github.gwtbootstrap.client.ui.NavLink;
 import com.github.gwtbootstrap.client.ui.event.HiddenEvent;
 import com.github.gwtbootstrap.client.ui.event.HiddenHandler;
 import com.google.gwt.core.client.GWT;
@@ -35,6 +36,11 @@ public class HomeView extends Composite implements //
 	Nav userNav;
 	@UiField
 	Dropdown userDrop;
+
+	@UiField
+	NavLink admin;
+	@UiField
+	NavLink events;
 
 	private final HomePresenter presenter;
 
@@ -67,10 +73,20 @@ public class HomeView extends Composite implements //
 		presenter.goToAdmin();
 	}
 
+	@UiHandler("events")
+	public void onEventsClick(ClickEvent event) {
+		presenter.goToEvents();
+	}
+
 	@UiHandler("brand")
 	public void onBrandClick(ClickEvent event) {
 		presenter.brandClick();
 	}
+
+	// @UiHandler("logOpenId")
+	// public void onOpenIdClick(ClickEvent event) {
+	// presenter.openId();
+	// }
 
 	@UiHandler("userEdit")
 	public void onUserEdit(ClickEvent event) {
@@ -134,6 +150,28 @@ public class HomeView extends Composite implements //
 			callBackModalHidden.hidden();
 		}
 		this.callBackModalHidden = null;
+	}
+
+	@Override
+	public void showAdmin() {
+		admin.setVisible(true);
+	}
+
+	@Override
+	public void hideAdmin() {
+		admin.setVisible(false);
+	}
+
+	@Override
+	public void showEvents() {
+		events.setVisible(true);
+
+	}
+
+	@Override
+	public void hideEvents() {
+		events.setVisible(false);
+
 	}
 
 }

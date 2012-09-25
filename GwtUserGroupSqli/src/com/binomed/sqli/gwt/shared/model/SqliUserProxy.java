@@ -30,6 +30,10 @@ public interface SqliUserProxy extends EntityProxy {
 
 	void setContactAllowed(boolean contactAllowed);
 
+	boolean isAdmin();
+
+	void setAdmin(boolean admin);
+
 	Integer getVersion();
 
 }

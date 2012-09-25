@@ -37,6 +37,8 @@ public interface I18N extends Constants {
 
 	String mainNavAdmin();
 
+	String mainNavEvents();
+
 	String mainNavEdit();
 
 	String mainNavDisconnect();
@@ -142,10 +144,18 @@ public interface I18N extends Constants {
 
 	String adminColLastName();
 
+	String adminColContactMail();
+
+	String adminColIsAdmin();
+
 	String adminLoadDatas();
 
 	String adminNoUsers();
 
 	String adminBtnDelete();
+
+	String adminBtnAdmin();
+
+	String adminBtnNotAdmin();
 
 }

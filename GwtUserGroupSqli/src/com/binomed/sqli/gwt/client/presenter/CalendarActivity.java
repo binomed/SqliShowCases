@@ -64,25 +64,8 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 
 		view.showLoad();
 		getCalendarId();
-		// login();
 
 	}
-
-	// private void login() {
-	// OAuth2Login.get().authorize(CLIENT_ID, //
-	// CalendarAuthScope.CALENDAR,//
-	// new Callback<Void, Exception>() {
-	// @Override
-	// public void onSuccess(Void v) {
-	// getCalendarId();
-	// }
-	//
-	// @Override
-	// public void onFailure(Exception e) {
-	// GWT.log("Auth failed:", e);
-	// }
-	// });
-	// }
 
 	/** Gets the calendar ID of some calendar that the user can write to. */
 	private void getCalendarId() {
