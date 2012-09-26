@@ -78,6 +78,16 @@ public class LoginActivity implements Activity //
 		SqliUserProxy curentUser = factory.getConnectedUser();
 		if (curentUser != null) {
 			driver.desactivForUser(curentUser);
+		} else if (factory.getAppStorage().getLastUserLogin() != null) {
+			factory.getRequestFactory().userRequest().findUser(factory.getAppStorage().getLastUserLogin()).fire(new Receiver<SqliUserProxy>() {
+
+				@Override
+				public void onSuccess(SqliUserProxy response) {
+					factory.getEventBus().fireEvent(new UserConnectedEvent(response));
+					driver.desactivForUser(response);
+
+				}
+			});
 		}
 
 		factory.getEventBus().addHandler(UserDisconnectedEvent.TYPE, this);

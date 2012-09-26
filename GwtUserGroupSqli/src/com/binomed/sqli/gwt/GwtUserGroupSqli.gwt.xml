@@ -34,7 +34,9 @@
   <inherits name="com.google.maps.gwt.GoogleMaps" />
   
   <!-- HTML5 integrations -->
+  <!-- 
   <inherits name="com.google.gwt.storage.client.Storage" />
+   -->
 
   <!-- Other module inherits                                      -->
   <inherits name="com.github.gwtbootstrap.Bootstrap"/>

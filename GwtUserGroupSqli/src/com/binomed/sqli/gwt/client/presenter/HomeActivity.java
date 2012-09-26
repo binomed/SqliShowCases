@@ -105,11 +105,13 @@ public class HomeActivity implements HomePresenter //
 		if (user.isAdmin()) {
 			view.showAdmin();
 		}
+		factory.getAppStorage().saveUser(user);
 	}
 
 	@Override
 	public void editUser() {
 		factory.getPlaceControler().goTo(new EditUserPlace(factory.getConnectedUser()));
+		factory.getAppStorage().saveUser(factory.getConnectedUser());
 	}
 
 	@Override
@@ -118,12 +120,14 @@ public class HomeActivity implements HomePresenter //
 		view.hideAdmin();
 		view.hideEvents();
 		factory.getEventBus().fireEvent(new UserDisconnectedEvent());
+		factory.getAppStorage().removeUserLogin();
 
 	}
 
 	@Override
 	public void userUpdate(SqliUserProxy user) {
 		view.showUser(user);
+		factory.getAppStorage().saveUser(user);
 
 	}
 

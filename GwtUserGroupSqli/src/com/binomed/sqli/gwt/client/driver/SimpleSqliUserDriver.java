@@ -5,7 +5,7 @@ import com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor;
 import com.binomed.sqli.gwt.shared.SqliUserRequest;
 import com.binomed.sqli.gwt.shared.model.SqliUserLogin;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
-import com.google.gwt.core.shared.GWT;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 
 public class SimpleSqliUserDriver {
