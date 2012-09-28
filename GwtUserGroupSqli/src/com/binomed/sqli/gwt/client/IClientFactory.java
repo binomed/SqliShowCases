@@ -1,6 +1,6 @@
 package com.binomed.sqli.gwt.client;
 
-import com.binomed.sqli.gwt.client.storage.ISqliStorage;
+import com.binomed.sqli.gwt.client.html5.storage.ISqliStorage;
 import com.binomed.sqli.gwt.shared.SqliRequestFactory;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.api.gwt.services.calendar.shared.model.Event;

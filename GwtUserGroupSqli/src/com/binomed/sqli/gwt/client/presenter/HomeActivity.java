@@ -1,11 +1,15 @@
 package com.binomed.sqli.gwt.client.presenter;
 
+import java.util.logging.Logger;
+
 import com.binomed.sqli.gwt.client.IClientFactory;
+import com.binomed.sqli.gwt.client.event.ui.ConnectionEvent;
 import com.binomed.sqli.gwt.client.event.ui.HideMessageEvent;
 import com.binomed.sqli.gwt.client.event.ui.MessageEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserConnectedEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserDisconnectedEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserUpdateEvent;
+import com.binomed.sqli.gwt.client.handler.ui.ConnectionHandler;
 import com.binomed.sqli.gwt.client.handler.ui.HideMessageHandler;
 import com.binomed.sqli.gwt.client.handler.ui.MessageHandler;
 import com.binomed.sqli.gwt.client.handler.workflow.CallBackHiddenMessage;
@@ -27,7 +31,10 @@ public class HomeActivity implements HomePresenter //
 		, UserConnectedHandler //
 		, UserUpdateHandler //
 		, HideMessageHandler //
+		, ConnectionHandler //
 {
+
+	private static final Logger LOGGER = Logger.getLogger("HomeActivity");
 
 	public interface Display extends IsWidget {
 
@@ -49,6 +56,8 @@ public class HomeActivity implements HomePresenter //
 
 		void hideEvents();
 
+		void showOffLineIcon(boolean onLine);
+
 	}
 
 	private final IClientFactory factory;
@@ -64,6 +73,7 @@ public class HomeActivity implements HomePresenter //
 		factory.getEventBus().addHandler(UserConnectedEvent.TYPE, this);
 		factory.getEventBus().addHandler(UserUpdateEvent.TYPE, this);
 		factory.getEventBus().addHandler(HideMessageEvent.TYPE, this);
+		factory.getEventBus().addHandler(ConnectionEvent.TYPE, this);
 
 		view.hideAdmin();
 		view.hideEvents();
@@ -145,6 +155,12 @@ public class HomeActivity implements HomePresenter //
 	@Override
 	public void goToEvents() {
 		factory.getPlaceControler().goTo(new CalendarPlace());
+
+	}
+
+	@Override
+	public void onChangeConnection(boolean onLine) {
+		view.showOffLineIcon(onLine);
 
 	}
 

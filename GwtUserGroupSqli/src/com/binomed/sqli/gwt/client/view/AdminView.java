@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client.view;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.binomed.sqli.gwt.client.presenter.itf.AdminPresenter;
 import com.binomed.sqli.gwt.client.resources.i18n.I18N;
@@ -29,6 +30,8 @@ import com.google.gwt.view.client.SingleSelectionModel;
 public class AdminView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.AdminActivity.Display //
 {
+
+	private static final Logger LOGGER = Logger.getLogger("AdminView");
 
 	private static AdminViewUiBinder uiBinder = GWT.create(AdminViewUiBinder.class);
 

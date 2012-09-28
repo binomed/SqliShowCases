@@ -17,6 +17,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -41,6 +42,8 @@ public class HomeView extends Composite implements //
 	NavLink admin;
 	@UiField
 	NavLink events;
+	@UiField
+	FlowPanel offLineIcon;
 
 	private final HomePresenter presenter;
 
@@ -52,6 +55,7 @@ public class HomeView extends Composite implements //
 		this.presenter = presenter;
 		userNav.setVisible(false);
 		modal.addHiddenHandler(this);
+		offLineIcon.setVisible(false);
 	}
 
 	/*
@@ -171,6 +175,12 @@ public class HomeView extends Composite implements //
 	@Override
 	public void hideEvents() {
 		events.setVisible(false);
+
+	}
+
+	@Override
+	public void showOffLineIcon(boolean onLine) {
+		offLineIcon.setVisible(!onLine);
 
 	}
 

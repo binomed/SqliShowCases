@@ -21,10 +21,13 @@
                     <b:NavLink ui:field="logOpenId" text="OPEN ID" />
                      -->
                 </b:Nav>
+                <b:Nav alignment="RIGHT" >
+                    <g:FlowPanel  styleName="icon-off" ui:field="offLineIcon"/>
+                </b:Nav>
                 <b:Nav alignment="RIGHT" ui:field="userNav">
                 	<b:Dropdown  ui:field="userDrop" rightDropdown="true">
                 		<b:NavLink icon="PENCIL" ui:field="userEdit" text="{i18n.mainNavEdit}"/>
-                		<b:NavLink icon="OFF" ui:field="userDisconnect" text="{i18n.mainNavDisconnect}"/>
+                		<b:NavLink icon="REMOVE_CIRCLE" ui:field="userDisconnect" text="{i18n.mainNavDisconnect}"/>
                 	</b:Dropdown>
                 </b:Nav>
             </b:Navbar>

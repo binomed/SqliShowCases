@@ -1,0 +1,29 @@
+CACHE MANIFEST
+ 
+# v0.2
+ 
+CACHE:
+GwtUserGroupSqli.html
+GwtUserGroupSqli.css
+GwtUserGroupSqli/GwtUserGroupSqli.nocache.js
+GwtUserGroupSqli/gwt-cal-google.css
+GwtUserGroupSqli/css/bootstrap-responsive.min.css
+GwtUserGroupSqli/css/bootstrap.min.css
+GwtUserGroupSqli/css/datepicker.css
+GwtUserGroupSqli/css/font-awesome.css
+GwtUserGroupSqli/css/gwt-bootstrap.css
+GwtUserGroupSqli/css/prettify.css
+GwtUserGroupSqli/font/fontawesome-webfont.eot
+GwtUserGroupSqli/font/fontawesome-webfont.svg
+GwtUserGroupSqli/font/fontawesome-webfont.ttf
+GwtUserGroupSqli/font/fontawesome-webfont.woff
+GwtUserGroupSqli/js/locales/bootstrap-datepicker.fr.js
+GwtUserGroupSqli/js/bootstrap-datepicker.js
+GwtUserGroupSqli/js/bootstrap.min.js
+GwtUserGroupSqli/js/iconListExtractor.js
+GwtUserGroupSqli/js/jquery-1.7.1.min.js
+img/ajax-loader.gif
+ 
+ 
+NETWORK:
+*

@@ -1,5 +1,7 @@
 package com.binomed.sqli.gwt.client;
 
+import java.util.logging.Logger;
+
 import com.binomed.sqli.gwt.client.place.AdminPlace;
 import com.binomed.sqli.gwt.client.place.CalendarPlace;
 import com.binomed.sqli.gwt.client.place.CreateUserPlace;
@@ -17,6 +19,8 @@ import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 
 public class AppAcitivityMapper implements ActivityMapper {
+
+	private static final Logger LOGGER = Logger.getLogger("AppActivityMapper");
 
 	private final IClientFactory clientFactory;
 

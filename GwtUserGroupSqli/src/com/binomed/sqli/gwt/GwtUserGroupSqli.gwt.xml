@@ -9,6 +9,10 @@
   <!-- We need the JUnit module in the main module,               -->
   <!-- otherwise eclipse complains (Google plugin bug?)           -->
   <inherits name='com.google.gwt.junit.JUnit' />
+  <!-- Logger integration -->
+  <!-- 
+  <inherits name="com.google.gwt.logging.Logging"/>	
+   -->
 
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
@@ -25,7 +29,6 @@
   <inherits name='com.bradrydzewski.gwt.calendar.theme.google.Google' />
   <inherits name='com.allen_sauer.gwt.dnd.gwt-dnd'/>
   <inherits name='com.github.gwtbootstrap.datepicker.Datepicker' />
-  <!-- <inherits name="com.google.gwt.logging.Logging"/>		  -->
   <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
   
@@ -42,8 +45,13 @@
   <inherits name="com.github.gwtbootstrap.Bootstrap"/>
   <set-property name="bootstrap.responsiveDesign" value="true"/>
   
-  <extend-property name="locale" values="en" />
+   <extend-property name='locale' values='en'/> 
+   <set-property-fallback name='locale' value='en'/> 
+   <set-property name='locale' value='en'/> 
   <!-- <extend-property name="locale" values="fr" />-->
+
+  <!-- Compile project only for Chrome -->
+  <set-property name="user.agent" value="safari" /> 
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.binomed.sqli.gwt.client.GwtUserGroupSqli' />
@@ -53,15 +61,15 @@
    <when-type-is class="com.binomed.sqli.gwt.client.IClientFactory"/>
    </replace-with>
    
-   <replace-with class="com.binomed.sqli.gwt.client.storage.ImplSqliStorage">
-   <when-type-is class="com.binomed.sqli.gwt.client.storage.ISqliStorage"/>
+   <replace-with class="com.binomed.sqli.gwt.client.html5.storage.ImplSqliStorage">
+   <when-type-is class="com.binomed.sqli.gwt.client.html5.storage.ISqliStorage"/>
    </replace-with>
    
    <!-- Super Dev Mode -->
    <!-- 
-    -->
   <add-linker name="xsiframe"/>
   <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+    -->
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />

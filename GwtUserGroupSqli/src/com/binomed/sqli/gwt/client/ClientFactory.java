@@ -1,19 +1,21 @@
 package com.binomed.sqli.gwt.client;
 
 import java.util.Date;
+import java.util.logging.Logger;
 
 import com.binomed.sqli.gwt.client.event.ui.MessageEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserConnectedEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserDisconnectedEvent;
 import com.binomed.sqli.gwt.client.handler.workflow.UserConnectedHandler;
 import com.binomed.sqli.gwt.client.handler.workflow.UserDisconnectedHandler;
+import com.binomed.sqli.gwt.client.html5.offline.SqliOfflineManagement;
+import com.binomed.sqli.gwt.client.html5.storage.ISqliStorage;
 import com.binomed.sqli.gwt.client.place.LoginPlace;
 import com.binomed.sqli.gwt.client.presenter.CalendarActivity.Display;
 import com.binomed.sqli.gwt.client.presenter.HomeActivity;
 import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.resources.ProjectResources;
 import com.binomed.sqli.gwt.client.resources.i18n.I18N;
-import com.binomed.sqli.gwt.client.storage.ISqliStorage;
 import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.binomed.sqli.gwt.shared.SqliRequestFactory;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
@@ -54,7 +56,7 @@ public class ClientFactory implements IClientFactory //
 		, UserConnectedHandler //
 {
 
-	// private static final Logger LOGGER = Logger.getLogger("ClientFacotry");
+	private static final Logger LOGGER = Logger.getLogger("ClientFacotry");
 
 	private final EventBus eventBus = new SimpleEventBus();
 	private final SqliServiceAsync rpcService;
@@ -107,6 +109,8 @@ public class ClientFactory implements IClientFactory //
 		// Register curent events
 		eventBus.addHandler(UserConnectedEvent.TYPE, this);
 		eventBus.addHandler(UserDisconnectedEvent.TYPE, this);
+
+		SqliOfflineManagement.checkConnection(this);
 
 	}
 

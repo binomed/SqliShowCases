@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client.presenter;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.presenter.itf.AdminPresenter;
@@ -14,6 +15,8 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 
 public class AdminActivity implements Activity, AdminPresenter {
+
+	private static final Logger LOGGER = Logger.getLogger("AdminActivity");
 
 	public interface Display extends IsWidget {
 

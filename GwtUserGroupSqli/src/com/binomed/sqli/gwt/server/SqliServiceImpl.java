@@ -32,9 +32,8 @@ public class SqliServiceImpl extends RemoteServiceServlet implements SqliService
 	}
 
 	@Override
-	public String testService() {
-		// long itemsCounts = MemcacheServiceFactory.getMemcacheService().getStatistics().getItemCount();
-		return "Hello Service ";
+	public String testConnexionService() {
+		return "OK";
 	}
 
 	@Override

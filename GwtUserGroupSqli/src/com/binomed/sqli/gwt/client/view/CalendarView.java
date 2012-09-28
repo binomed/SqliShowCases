@@ -1,6 +1,7 @@
 package com.binomed.sqli.gwt.client.view;
 
 import java.util.Date;
+import java.util.logging.Logger;
 
 import com.binomed.sqli.gwt.client.presenter.itf.CalendarPresenter;
 import com.binomed.sqli.gwt.client.utils.StringUtils;
@@ -29,6 +30,8 @@ public class CalendarView extends Composite implements //
 		, SelectionHandler<Appointment> //
 {
 
+	Logger LOGGER = Logger.getLogger("CalendarView");
+
 	private static CalendarViewUiBinder uiBinder = GWT.create(CalendarViewUiBinder.class);
 
 	private final CalendarPresenter presenter;
@@ -52,9 +55,13 @@ public class CalendarView extends Composite implements //
 
 		this.panelLoad.setVisible(false);
 		calendar = new Calendar();
-		calendar.setDate(new Date()); // calendar date, not required
 		calendar.setWidth("100%");
 		calendar.setHeight("100%");
+
+	}
+
+	@Override
+	public void initCalendar() {
 		calendar.scrollToHour(9);
 		calendar.addSelectionHandler(this);
 		calendarContent.add(calendar);
@@ -163,6 +170,7 @@ public class CalendarView extends Composite implements //
 	}
 
 	private void manageTabChange(int tabIndex, boolean overrideIndex) {
+
 		if (overrideIndex) {
 			this.tabIndex = tabIndex;
 		}

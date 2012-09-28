@@ -3,7 +3,6 @@ package com.binomed.sqli.gwt.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
@@ -21,25 +20,25 @@ public class GwtUserGroupSqli implements EntryPoint {
 		DOM.removeChild(RootPanel.getBodyElement(), DOM.getElementById("loading"));
 		GWT.create(IClientFactory.class);
 
-		// This is where the magic happens - This code is only usefull when the OpenID provider
-		// redirects the user back to your site - please visit openid.net for valid parameters.
-		// The "if" statement checks to make sure that it is a valid response from the OpenID
-		// provider - You can do anything you want with the results here such as verifying the
-		// response with the server-side code
-		if (Window.Location.getParameter("openid.rpnonce") != null) {
-			String s = Window.Location.getParameter("openid.mode");
-			// executes this if the user cancels the authentication process and the OpenID
-			// providers returns to the your site
-			if (s.equals("cancel")) {
-				Window.alert("Server returned openid.mode=cancel <br>You need to Accept not Cancel");
-			}
-			// Here, I am assuming that everything is fine and that the user has been sucessfully logged in
-			else {
-				Window.alert("You have successfully signed in");
-				// vp.setVisible(false);
-			}
-
-		}
+		// // This is where the magic happens - This code is only usefull when the OpenID provider
+		// // redirects the user back to your site - please visit openid.net for valid parameters.
+		// // The "if" statement checks to make sure that it is a valid response from the OpenID
+		// // provider - You can do anything you want with the results here such as verifying the
+		// // response with the server-side code
+		// if (Window.Location.getParameter("openid.rpnonce") != null) {
+		// String s = Window.Location.getParameter("openid.mode");
+		// // executes this if the user cancels the authentication process and the OpenID
+		// // providers returns to the your site
+		// if (s.equals("cancel")) {
+		// Window.alert("Server returned openid.mode=cancel <br>You need to Accept not Cancel");
+		// }
+		// // Here, I am assuming that everything is fine and that the user has been sucessfully logged in
+		// else {
+		// Window.alert("You have successfully signed in");
+		// // vp.setVisible(false);
+		// }
+		//
+		// }
 
 	}
 }

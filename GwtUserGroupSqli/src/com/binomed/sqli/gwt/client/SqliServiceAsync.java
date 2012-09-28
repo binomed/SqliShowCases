@@ -8,7 +8,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface SqliServiceAsync {
 
-	void testService(AsyncCallback<String> callback);
+	void testConnexionService(AsyncCallback<String> callback);
 
 	void authenticateOpenId(String provider_url, AsyncCallback<UserOpenId> callback);
 
