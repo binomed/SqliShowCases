@@ -5,6 +5,6 @@ import com.google.gwt.event.shared.EventHandler;
 
 public interface UserConnectedHandler extends EventHandler {
 
-	void userConnected(SqliUserProxy user);
+	void userConnected(SqliUserProxy user, boolean onLine);
 
 }

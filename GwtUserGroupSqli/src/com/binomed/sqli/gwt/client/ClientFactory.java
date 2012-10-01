@@ -3,9 +3,11 @@ package com.binomed.sqli.gwt.client;
 import java.util.Date;
 import java.util.logging.Logger;
 
+import com.binomed.sqli.gwt.client.event.ui.ConnectionEvent;
 import com.binomed.sqli.gwt.client.event.ui.MessageEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserConnectedEvent;
 import com.binomed.sqli.gwt.client.event.workflow.UserDisconnectedEvent;
+import com.binomed.sqli.gwt.client.handler.ui.ConnectionHandler;
 import com.binomed.sqli.gwt.client.handler.workflow.UserConnectedHandler;
 import com.binomed.sqli.gwt.client.handler.workflow.UserDisconnectedHandler;
 import com.binomed.sqli.gwt.client.html5.offline.SqliOfflineManagement;
@@ -54,6 +56,7 @@ import com.google.web.bindery.requestfactory.shared.Receiver;
 public class ClientFactory implements IClientFactory //
 		, UserDisconnectedHandler //
 		, UserConnectedHandler //
+		, ConnectionHandler //
 {
 
 	private static final Logger LOGGER = Logger.getLogger("ClientFacotry");
@@ -76,6 +79,7 @@ public class ClientFactory implements IClientFactory //
 
 	private SqliUserProxy userConected;
 	private Place place;
+	private boolean connected;
 
 	public ClientFactory() {
 		super();
@@ -109,6 +113,7 @@ public class ClientFactory implements IClientFactory //
 		// Register curent events
 		eventBus.addHandler(UserConnectedEvent.TYPE, this);
 		eventBus.addHandler(UserDisconnectedEvent.TYPE, this);
+		eventBus.addHandler(ConnectionEvent.TYPE, this);
 
 		SqliOfflineManagement.checkConnection(this);
 
@@ -173,7 +178,7 @@ public class ClientFactory implements IClientFactory //
 	}
 
 	@Override
-	public void userConnected(SqliUserProxy user) {
+	public void userConnected(SqliUserProxy user, boolean onLine) {
 		this.userConected = user;
 
 	}
@@ -262,5 +267,15 @@ public class ClientFactory implements IClientFactory //
 	@Override
 	public ISqliStorage getAppStorage() {
 		return this.sqliStorage;
+	}
+
+	@Override
+	public boolean isConnect() {
+		return connected;
+	}
+
+	@Override
+	public void onChangeConnection(boolean onLine) {
+		connected = onLine;
 	}
 }

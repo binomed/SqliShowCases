@@ -9,8 +9,11 @@ public class UserConnectedEvent extends BeanEvent<SqliUserProxy, UserConnectedHa
 
 	public static GwtEvent.Type<UserConnectedHandler> TYPE = new Type<UserConnectedHandler>();
 
-	public UserConnectedEvent(SqliUserProxy bean) {
+	private final boolean onLine;
+
+	public UserConnectedEvent(SqliUserProxy bean, boolean onLine) {
 		super(bean);
+		this.onLine = onLine;
 	}
 
 	@Override
@@ -20,7 +23,7 @@ public class UserConnectedEvent extends BeanEvent<SqliUserProxy, UserConnectedHa
 
 	@Override
 	protected void dispatch(UserConnectedHandler handler) {
-		handler.userConnected(getBean());
+		handler.userConnected(getBean(), onLine);
 	}
 
 }

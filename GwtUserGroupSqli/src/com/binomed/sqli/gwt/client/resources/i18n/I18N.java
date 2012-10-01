@@ -43,6 +43,8 @@ public interface I18N extends Constants {
 
 	String mainNavDisconnect();
 
+	String mainConnectionOff();
+
 	/* Login View */
 	String loginTitle();
 
@@ -136,6 +138,8 @@ public interface I18N extends Constants {
 	String eventMap();
 
 	String eventAllDay();
+
+	String eventNoSpeaker();
 
 	/* Admin */
 	String adminColEmail();

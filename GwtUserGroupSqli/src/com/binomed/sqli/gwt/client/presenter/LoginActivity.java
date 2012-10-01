@@ -83,10 +83,26 @@ public class LoginActivity implements Activity //
 
 				@Override
 				public void onSuccess(SqliUserProxy response) {
-					factory.getEventBus().fireEvent(new UserConnectedEvent(response));
+					factory.getEventBus().fireEvent(new UserConnectedEvent(response, true));
 					driver.desactivForUser(response);
-
 				}
+
+				@Override
+				public void onFailure(ServerFailure error) {
+					if (!factory.isConnect()) {
+						SqliUserProxy user = factory.getRequestFactory().userRequest().create(SqliUserProxy.class);
+						user.setEmail(factory.getAppStorage().getLastUserLogin());
+						String[] name = factory.getAppStorage().getUserName();
+						if (name != null && name.length == 2) {
+							user.setFirstName(name[0]);
+							user.setName(name[1]);
+						}
+						user.setPassword("lorepipsum");
+						factory.getEventBus().fireEvent(new UserConnectedEvent(user, false));
+						driver.desactivForUser(user);
+					}
+				}
+
 			});
 		}
 
@@ -112,7 +128,7 @@ public class LoginActivity implements Activity //
 					if (user == null) {
 						factory.getEventBus().fireEvent(new MessageEvent(I18N.instance.loginUnkown(), true));
 					} else {
-						factory.getEventBus().fireEvent(new UserConnectedEvent(user));
+						factory.getEventBus().fireEvent(new UserConnectedEvent(user, true));
 						driver.desactivForUser(user);
 						factory.getEventBus().fireEvent(new HideMessageEvent(new CallBackHiddenMessage() {
 

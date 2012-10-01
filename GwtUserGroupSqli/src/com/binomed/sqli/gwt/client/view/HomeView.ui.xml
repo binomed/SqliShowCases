@@ -22,7 +22,7 @@
                      -->
                 </b:Nav>
                 <b:Nav alignment="RIGHT" >
-                    <g:FlowPanel  styleName="icon-off" ui:field="offLineIcon"/>
+                    <g:FlowPanel  styleName="icon-off" ui:field="offLineIcon" title="{i18n.mainConnectionOff}"/>
                 </b:Nav>
                 <b:Nav alignment="RIGHT" ui:field="userNav">
                 	<b:Dropdown  ui:field="userDrop" rightDropdown="true">

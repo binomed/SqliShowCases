@@ -13,6 +13,12 @@
   <!-- 
   <inherits name="com.google.gwt.logging.Logging"/>	
    -->
+   
+   <!-- Guava -->
+   <!-- 
+    -->
+  <inherits name='com.google.common.base.Base' />
+   
 
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->

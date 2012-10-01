@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" output="test-classes" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/v2"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-gwt-13.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-bootstrap-2.0.4.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-cal-0.9.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-calendar-v3-0.3-alpha.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-dnd-3.1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-maps.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-validator-4.0.2.GA-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-validator-4.0.2.GA.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jsr305.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-13.0.1.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

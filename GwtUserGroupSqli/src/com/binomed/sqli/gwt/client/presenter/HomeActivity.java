@@ -44,7 +44,7 @@ public class HomeActivity implements HomePresenter //
 
 		void hideLoadMessage(CallBackHiddenMessage callBack);
 
-		void showUser(SqliUserProxy user);
+		void showUser(SqliUserProxy user, boolean onLine);
 
 		void hideUser();
 
@@ -109,8 +109,8 @@ public class HomeActivity implements HomePresenter //
 	}
 
 	@Override
-	public void userConnected(SqliUserProxy user) {
-		view.showUser(user);
+	public void userConnected(SqliUserProxy user, boolean onLine) {
+		view.showUser(user, onLine);
 		view.showEvents();
 		if (user.isAdmin()) {
 			view.showAdmin();
@@ -136,7 +136,7 @@ public class HomeActivity implements HomePresenter //
 
 	@Override
 	public void userUpdate(SqliUserProxy user) {
-		view.showUser(user);
+		view.showUser(user, true);
 		factory.getAppStorage().saveUser(user);
 
 	}

@@ -1,5 +1,7 @@
 package com.binomed.sqli.gwt.client.presenter;
 
+import java.util.List;
+
 import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.driver.SqliUserDriver;
 import com.binomed.sqli.gwt.client.editor.SqliUserEditor;
@@ -13,6 +15,7 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
+import com.google.web.bindery.requestfactory.shared.Receiver;
 
 public class CreateUserActivity implements Activity, CreateUserPresenter {
 
@@ -55,6 +58,15 @@ public class CreateUserActivity implements Activity, CreateUserPresenter {
 		view.getUserEditor().add(editor);
 		driver = new SqliUserDriver(factory, editor, null);
 
+		factory.getRequestFactory().userRequest().findAllUsers().fire(new Receiver<List<SqliUserProxy>>() {
+
+			@Override
+			public void onSuccess(List<SqliUserProxy> response) {
+				driver.setFirstUser(response.size() == 0);
+
+			}
+		});
+
 	}
 
 	@Override
@@ -63,7 +75,7 @@ public class CreateUserActivity implements Activity, CreateUserPresenter {
 
 			@Override
 			public void persistDone(SqliUserProxy user) {
-				factory.getEventBus().fireEvent(new UserConnectedEvent(user));
+				factory.getEventBus().fireEvent(new UserConnectedEvent(user, true));
 				factory.getPlaceControler().goTo(new CalendarPlace());
 
 			}

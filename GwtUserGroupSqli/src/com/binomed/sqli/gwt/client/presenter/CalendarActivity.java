@@ -83,7 +83,7 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 
 	/** Gets the calendar ID of some calendar that the user can write to. */
 	private void getCalendarId() {
-		if (factory.getAppStorage().getNbEvents() > 0) {
+		if (!factory.isConnect() && factory.getAppStorage().getNbEvents() > 0) {
 
 			Scheduler.get().scheduleDeferred(new ScheduledCommand() {
 
@@ -109,6 +109,9 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 					}
 					view.hideLoad();
 
+					if (factory.isConnect()) {
+						factory.getAppStorage().clearEvents();
+					}
 					factory.getAppStorage().saveListEvents(eventList);
 
 				}

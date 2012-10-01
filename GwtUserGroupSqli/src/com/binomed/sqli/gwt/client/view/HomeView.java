@@ -41,6 +41,8 @@ public class HomeView extends Composite implements //
 	@UiField
 	NavLink admin;
 	@UiField
+	NavLink userEdit;
+	@UiField
 	NavLink events;
 	@UiField
 	FlowPanel offLineIcon;
@@ -134,12 +136,13 @@ public class HomeView extends Composite implements //
 	}
 
 	@Override
-	public void showUser(SqliUserProxy user) {
+	public void showUser(SqliUserProxy user, boolean onLine) {
 		userNav.setVisible(true);
 		String text = user.getFirstName() + " " + user.getName();
 		userDrop.setText(text);
 		userDrop.setTitle(text);
 		userNav.setTitle(text);
+		userEdit.setDisabled(!onLine);
 
 	}
 

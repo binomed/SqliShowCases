@@ -37,4 +37,6 @@ public interface IClientFactory {
 
 	void addEventToCalendar(Event event);
 
+	boolean isConnect();
+
 }

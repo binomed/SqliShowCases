@@ -11,6 +11,8 @@ public interface ISqliStorage {
 
 	String getLastUserLogin();
 
+	String[] getUserName();
+
 	void removeUserLogin();
 
 	List<Event> getListEvents();
@@ -22,5 +24,7 @@ public interface ISqliStorage {
 	Event getEvent(int i);
 
 	int getEventNumber(String idEvent);
+
+	void clearEvents();
 
 }

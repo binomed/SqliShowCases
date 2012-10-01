@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+	>
+	
+	<ui:with field="res" type="com.binomed.sqli.gwt.client.resources.ProjectResources" />
+	<ui:with field="i18n" type="com.binomed.sqli.gwt.client.resources.i18n.I18N" />
+	
+	<g:HTMLPanel>
+		  <b:FluidRow>
+		   	<b:Column size="2">
+		   		<g:FlowPanel>
+	   	   			<g:Image  ui:field="photoSpeaker" width="100px" height="100px"/>
+		   		</g:FlowPanel>
+		   	</b:Column>
+		   	<b:Column size="10">
+		   		<g:FlowPanel>
+	   	   			<b:Paragraph ui:field="detailsSpeaker"></b:Paragraph>
+	   	   		</g:FlowPanel>
+		   	</b:Column>
+	   	</b:FluidRow>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

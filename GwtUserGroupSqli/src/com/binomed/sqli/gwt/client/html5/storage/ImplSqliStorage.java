@@ -21,6 +21,8 @@ public class ImplSqliStorage implements ISqliStorage {
 	private final Storage stockStore;
 
 	private static final String KEY_USER_LOGIN = "login";
+	private static final String KEY_USER_FIRST_NAME = "firstName";
+	private static final String KEY_USER_LAST_NAME = "lastName";
 	private static final String KEY_EVENTS_NUMBER = "eventNumber";
 	private static final String KEY_EVENT = "event.";
 	private static final String KEY_EVENT_NAME = "name";
@@ -40,6 +42,8 @@ public class ImplSqliStorage implements ISqliStorage {
 	public void saveUser(SqliUserProxy user) {
 		if (stockStore != null) {
 			stockStore.setItem(KEY_USER_LOGIN, user.getEmail());
+			stockStore.setItem(KEY_USER_FIRST_NAME, user.getFirstName());
+			stockStore.setItem(KEY_USER_LAST_NAME, user.getName());
 		}
 
 	}
@@ -54,9 +58,23 @@ public class ImplSqliStorage implements ISqliStorage {
 	}
 
 	@Override
+	public String[] getUserName() {
+		String[] name = null;
+		if (stockStore != null) {
+			name = new String[] { stockStore.getItem(KEY_USER_FIRST_NAME) //
+					, stockStore.getItem(KEY_USER_LAST_NAME) //
+			};
+
+		}
+		return name;
+	}
+
+	@Override
 	public void removeUserLogin() {
 		if (stockStore != null) {
 			stockStore.removeItem(KEY_USER_LOGIN);
+			stockStore.removeItem(KEY_USER_FIRST_NAME);
+			stockStore.removeItem(KEY_USER_LAST_NAME);
 		}
 	}
 
@@ -128,6 +146,32 @@ public class ImplSqliStorage implements ISqliStorage {
 				}
 				stockStore.setItem(KEY_EVENT + i + KEY_EVENT_PLACE, event.getLocation());
 				i++;
+			}
+		}
+
+	}
+
+	@Override
+	public void clearEvents() {
+		if (stockStore != null) {
+			int nbEvents = 0;
+			if (StringUtils.isNotEmpty(stockStore.getItem(KEY_EVENTS_NUMBER))) {
+				nbEvents = Integer.valueOf(stockStore.getItem(KEY_EVENTS_NUMBER));
+			}
+			String eventId = null;
+			for (int i = 0; i < nbEvents; i++) {
+
+				eventId = stockStore.getItem(KEY_EVENT + i + KEY_EVENT_ID);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_ID);
+				// We stock the number in order to extract it easly
+				stockStore.removeItem(KEY_EVENT + eventId);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_NAME);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_DESCRIPTION);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_FULL_DATE);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_START_DATE);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_END_DATE);
+				stockStore.removeItem(KEY_EVENT + i + KEY_EVENT_PLACE);
+				stockStore.setItem(KEY_EVENTS_NUMBER, String.valueOf(0));
 			}
 		}
 

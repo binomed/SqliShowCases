@@ -31,6 +31,12 @@ public class SqliUserDriver {
 	private final SqliUserProxy user;
 	private final boolean createMode;
 
+	private boolean firstUser;
+
+	public void setFirstUser(boolean firstUser) {
+		this.firstUser = firstUser;
+	}
+
 	public SqliUserDriver(IClientFactory clientFactory, SqliUserEditor editor, SqliUserProxy user) {
 		super();
 		this.clientFactory = clientFactory;
@@ -76,6 +82,9 @@ public class SqliUserDriver {
 		};
 
 		if (createMode) {
+			if (firstUser) {
+				user.setAdmin(true);
+			}
 			req.persist().using(user).fire(callBackFire);
 		} else {
 			req.update().using(user).fire(callBackFire);

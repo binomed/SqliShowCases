@@ -296,3 +296,75 @@ Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUser
 Rebinding com.binomed.sqli.gwt.client.editor.SimpleSqliUserEditor_SimpleSqliUserUiBinderImpl_designTime1348587390527_GenBundle
    Adding '1' new generated units
       Removing invalidated units
+Public resources found in...
+Translatable source found in...
+Found 0 cached/archived units.  Used 0 / 3525 units from cache.
+Validating units:
+   [ERROR] Errors in 'file:/C:/tools/projets/SqliShowCases/GwtUserGroupSqli/src/com/binomed/sqli/gwt/client/view/EventView.java'
+      [ERROR] Line 91: No source code is available for type com.google.appengine.labs.repackaged.com.google.common.base.Splitter; did you forget to inherit a required module?
+   [ERROR] Errors in 'file:/C:/tools/projets/SqliShowCases/GwtUserGroupSqli/.apt_generated/com/binomed/sqli/gwt/shared/SqliRequestFactoryDeobfuscatorBuilder.java'
+      [ERROR] Line 7: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.Deobfuscator.Builder; did you forget to inherit a required module?
+      [ERROR] Line 9: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.OperationKey; did you forget to inherit a required module?
+      [ERROR] Line 10: No source code is available for type com.google.web.bindery.requestfactory.vm.impl.OperationData.Builder; did you forget to inherit a required module?
+Removing invalidated units
+Finding entry point classes
+Rebinding com.google.gwt.i18n.client.impl.LocaleInfoImpl
+   Invoking generator com.google.gwt.i18n.rebind.LocaleInfoGenerator
+      Processing interface com.google.gwt.i18n.client.constants.NumberConstantsImpl
+         Generating method body for notANumber()
+         Generating method body for currencyPattern()
+         Generating method body for decimalPattern()
+         Generating method body for decimalSeparator()
+         Generating method body for defCurrencyCode()
+         Generating method body for exponentialSymbol()
+         Generating method body for globalCurrencyPattern()
+         Generating method body for groupingSeparator()
+         Generating method body for infinity()
+         Generating method body for minusSign()
+         Generating method body for monetaryGroupingSeparator()
+         Generating method body for monetarySeparator()
+         Generating method body for percent()
+         Generating method body for percentPattern()
+         Generating method body for perMill()
+         Generating method body for plusSign()
+         Generating method body for scientificPattern()
+         Generating method body for simpleCurrencyPattern()
+         Generating method body for zeroDigit()
+   Adding '3' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker.SpeakerUiBinder
+   Adding '3' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097323741.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097323741.Template
+         Generating method body for html1()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097323741_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker.SpeakerUiBinder
+   Adding '3' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097325763.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097325763.Template
+         Generating method body for html1()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097325763_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker.SpeakerUiBinder
+   Adding '3' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097377957.Template
+   Invoking generator com.google.gwt.safehtml.rebind.SafeHtmlTemplatesGenerator
+      Constructing interface com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097377957.Template
+         Generating method body for html1()
+   Adding '1' new generated units
+      Removing invalidated units
+Rebinding com.binomed.sqli.gwt.client.widget.Speaker_SpeakerUiBinderImpl_designTime1349097377957_GenBundle
+   Adding '1' new generated units
+      Removing invalidated units
