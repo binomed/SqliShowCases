@@ -70,10 +70,12 @@ public class ClientFactory implements IClientFactory //
 	private final SqliRequestFactory requestFactory;
 	private final ISqliStorage sqliStorage;
 
-	// private static final String CALENDAR_ID = "jean.francois.garreau@gmail.com";
-	private static final String CALENDAR_ID = "ahkgurr9feh3leouhc2na4hbvo@group.calendar.google.com";
-	private static final String CLIENT_ID = "1092752234333-altm4129jd9js6o31hgrrfq6qc028k4e.apps.googleusercontent.com";
-	private static final String API_KEY = "AIzaSyCZCYiIpkDdgzmXVeJihy3p-lEj33m6WtQ";
+	private static final String LOCALHOST_URL = "http://127.0.0.1:8888/";
+	private static final String CALENDAR_ID = "d67t1n4ijavur1igfo6ramp1ds@group.calendar.google.com";
+	private static final String CLIENT_ID_LOCAL = "505522129937-slrkasjdeoicotmtipcmdeg479sbucb9.apps.googleusercontent.com";
+	private static final String CLIENT_ID_APPENGINE = "505522129937.apps.googleusercontent.com";
+	private final String CLIENT_ID = CLIENT_ID_APPENGINE;
+	private static final String API_KEY = "AIzaSyACDYw9UQ6LewPFzGRmrzb50tWdf-h3MCw";
 	private static final String APPLICATION_NAME = "CalendarSample/1.0";
 	private static final Calendar calendar = GWT.create(Calendar.class);
 
@@ -116,6 +118,8 @@ public class ClientFactory implements IClientFactory //
 		eventBus.addHandler(ConnectionEvent.TYPE, this);
 
 		SqliOfflineManagement.checkConnection(this);
+
+		// this.CLIENT_ID = LOCALHOST_URL.equals(com.google.gwt.core.client.GWT.getHostPageBaseURL()) ? CLIENT_ID_LOCAL : CLIENT_ID_APPENGINE;
 
 	}
 

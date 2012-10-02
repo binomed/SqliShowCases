@@ -5,6 +5,7 @@ import com.binomed.sqli.gwt.client.presenter.itf.HomePresenter;
 import com.binomed.sqli.gwt.client.utils.StringUtils;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.github.gwtbootstrap.client.ui.Dropdown;
+import com.github.gwtbootstrap.client.ui.Icon;
 import com.github.gwtbootstrap.client.ui.Modal;
 import com.github.gwtbootstrap.client.ui.Nav;
 import com.github.gwtbootstrap.client.ui.NavLink;
@@ -17,7 +18,6 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -45,7 +45,7 @@ public class HomeView extends Composite implements //
 	@UiField
 	NavLink events;
 	@UiField
-	FlowPanel offLineIcon;
+	Icon offLineIcon;
 
 	private final HomePresenter presenter;
 

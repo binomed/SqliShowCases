@@ -33,6 +33,9 @@ public class SqliServiceImpl extends RemoteServiceServlet implements SqliService
 
 	@Override
 	public String testConnexionService() {
+		// if (true) {
+		// throw new RuntimeException();
+		// }
 		return "OK";
 	}
 

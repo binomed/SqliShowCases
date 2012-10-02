@@ -21,8 +21,8 @@
                     <b:NavLink ui:field="logOpenId" text="OPEN ID" />
                      -->
                 </b:Nav>
-                <b:Nav alignment="RIGHT" >
-                    <g:FlowPanel  styleName="icon-off" ui:field="offLineIcon" title="{i18n.mainConnectionOff}"/>
+                <b:Nav alignment="RIGHT" title="{i18n.mainConnectionOff}" >
+                    <b:Icon type="OFF" iconSize="LARGE" ui:field="offLineIcon" title="{i18n.mainConnectionOff}"/>
                 </b:Nav>
                 <b:Nav alignment="RIGHT" ui:field="userNav">
                 	<b:Dropdown  ui:field="userDrop" rightDropdown="true">

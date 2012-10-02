@@ -128,6 +128,7 @@ public class ImplSqliStorage implements ISqliStorage {
 			}
 			int i = nbEvents;
 			nbEvents += events.size();
+			stockStore.setItem(KEY_EVENTS_NUMBER, String.valueOf(nbEvents));
 			for (Event event : events) {
 				stockStore.setItem(KEY_EVENT + i + KEY_EVENT_ID, event.getId());
 				// We stock the number in order to extract it easly

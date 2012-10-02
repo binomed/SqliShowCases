@@ -15,7 +15,6 @@ import com.google.api.gwt.services.calendar.shared.model.Events;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -120,7 +119,6 @@ public class CalendarActivity implements Activity, CalendarPresenter {
 				public void onFailure(ServerFailure error) {
 					super.onFailure(error);
 					factory.getEventBus().fireEvent(new MessageEvent("Erreur retrieve calendar events : " + error.getMessage(), true));
-					GWT.log("Retrieve events failed:" + error.getMessage());
 					view.hideLoad();
 				}
 

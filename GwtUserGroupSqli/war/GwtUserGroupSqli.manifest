@@ -1,6 +1,6 @@
 CACHE MANIFEST
  
-# v0.2
+# v1.0
  
 CACHE:
 GwtUserGroupSqli.html
@@ -22,6 +22,7 @@ GwtUserGroupSqli/js/bootstrap-datepicker.js
 GwtUserGroupSqli/js/bootstrap.min.js
 GwtUserGroupSqli/js/iconListExtractor.js
 GwtUserGroupSqli/js/jquery-1.7.1.min.js
+GwtUserGroupSqli/gwt/standard/standard.css
 img/ajax-loader.gif
  
  
