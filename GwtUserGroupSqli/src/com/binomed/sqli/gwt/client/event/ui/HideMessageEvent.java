@@ -5,6 +5,9 @@ import com.binomed.sqli.gwt.client.handler.ui.HideMessageHandler;
 import com.binomed.sqli.gwt.client.handler.workflow.CallBackHiddenMessage;
 import com.google.gwt.event.shared.GwtEvent;
 
+/**
+ * @author jfgarreau Event for hiding message
+ */
 public class HideMessageEvent extends BeanEvent<CallBackHiddenMessage, HideMessageHandler> {
 
 	public static GwtEvent.Type<HideMessageHandler> TYPE = new Type<HideMessageHandler>();

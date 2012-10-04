@@ -3,6 +3,12 @@ package com.binomed.sqli.gwt.shared.model;
 import com.google.web.bindery.requestfactory.shared.EntityProxy;
 import com.google.web.bindery.requestfactory.shared.ProxyFor;
 
+/**
+ * @author jfgarreau
+ * 
+ *         Proxy class for requestFactory beans
+ * 
+ */
 @ProxyFor(com.binomed.sqli.gwt.server.model.SqliUser.class)
 public interface SqliUserProxy extends EntityProxy {
 

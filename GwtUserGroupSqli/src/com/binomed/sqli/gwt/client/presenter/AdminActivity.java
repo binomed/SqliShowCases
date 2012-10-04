@@ -14,10 +14,19 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class AdminActivity implements Activity, AdminPresenter {
 
 	private static final Logger LOGGER = Logger.getLogger("AdminActivity");
 
+	/**
+	 * @author jfgarreau
+	 * 
+	 *         Interface for View
+	 */
 	public interface Display extends IsWidget {
 
 		void fillUsers(List<SqliUserProxy> userList);

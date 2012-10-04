@@ -12,6 +12,11 @@ import javax.persistence.Query;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author jfgarreau
+ * 
+ *         Server bean for requestFactory
+ */
 @Entity
 public class SqliUser {
 

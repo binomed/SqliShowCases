@@ -1,6 +1,5 @@
 package com.binomed.sqli.gwt.client.editor;
 
-import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.presenter.itf.LoginPresenter;
 import com.binomed.sqli.gwt.shared.model.SqliUserLogin;
 import com.github.gwtbootstrap.client.ui.Button;
@@ -16,6 +15,9 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau Editor for simple user
+ */
 public class SimpleSqliUserEditor extends Composite implements //
 		Editor<SqliUserLogin> //
 {
@@ -29,13 +31,11 @@ public class SimpleSqliUserEditor extends Composite implements //
 	@UiField
 	Button btnConnexion;
 
-	private final IClientFactory clientFacotry;
 	private final LoginPresenter presenter;
 
-	public SimpleSqliUserEditor(IClientFactory clientFactory, LoginPresenter presenter) {
+	public SimpleSqliUserEditor(LoginPresenter presenter) {
 		// Initialization
 		initWidget(uiBinder.createAndBindUi(this));
-		this.clientFacotry = clientFactory;
 		this.presenter = presenter;
 	}
 

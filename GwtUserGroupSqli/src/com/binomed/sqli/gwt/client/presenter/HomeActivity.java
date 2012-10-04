@@ -26,6 +26,10 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class HomeActivity implements HomePresenter //
 		, MessageHandler //
 		, UserConnectedHandler //
@@ -36,6 +40,11 @@ public class HomeActivity implements HomePresenter //
 
 	private static final Logger LOGGER = Logger.getLogger("HomeActivity");
 
+	/**
+	 * @author jfgarreau
+	 * 
+	 *         Interface for View
+	 */
 	public interface Display extends IsWidget {
 
 		AcceptsOneWidget registerMainPanel();
@@ -163,52 +172,5 @@ public class HomeActivity implements HomePresenter //
 		view.showOffLineIcon(onLine);
 
 	}
-
-	// @Override
-	// public void openId() {
-	// factory.getService().getOpenIdProtocols(new AsyncCallback<List<OpenIdProtocls>>() {
-	//
-	// @Override
-	// public void onSuccess(List<OpenIdProtocls> result) {
-	// // TODO Auto-generated method stub
-	// Modal modal = new Modal();
-	// FlowPanel panel = new FlowPanel();
-	// for (OpenIdProtocls res : result) {
-	// final NavLink link = new NavLink(res.getName(), res.getUrl());
-	// link.addClickHandler(new ClickHandler() {
-	//
-	// @Override
-	// public void onClick(ClickEvent event) {
-	// factory.getService().authenticateOpenId(link.getAnchor().getHref(), new AsyncCallback<UserOpenId>() {
-	//
-	// @Override
-	// public void onSuccess(UserOpenId result) {
-	// Window.alert("Log ! " + result.getParams().get("login") + " : " + result.getParams().get("name"));
-	// }
-	//
-	// @Override
-	// public void onFailure(Throwable caught) {
-	// GWT.getUncaughtExceptionHandler().onUncaughtException(caught);
-	// Window.alert("Error : " + caught.getLocalizedMessage());
-	// }
-	// });
-	//
-	// }
-	// });
-	// panel.add(link);
-	// }
-	// modal.add(panel);
-	// modal.show();
-	// }
-	//
-	// @Override
-	// public void onFailure(Throwable caught) {
-	// GWT.getUncaughtExceptionHandler().onUncaughtException(caught);
-	// Window.alert("Error : " + caught.getLocalizedMessage());
-	//
-	// }
-	// });
-	//
-	// }
 
 }

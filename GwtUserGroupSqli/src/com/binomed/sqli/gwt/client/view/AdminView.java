@@ -27,6 +27,10 @@ import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SelectionModel;
 import com.google.gwt.view.client.SingleSelectionModel;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class AdminView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.AdminActivity.Display //
 {

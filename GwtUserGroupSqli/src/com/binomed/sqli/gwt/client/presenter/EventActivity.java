@@ -15,10 +15,19 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class EventActivity implements Activity, EventPresenter {
 
 	private static final Logger LOGGER = Logger.getLogger("EventActivity");
 
+	/**
+	 * @author jfgarreau
+	 * 
+	 *         Interface for View
+	 */
 	public interface Display extends IsWidget {
 
 		void showEvent(Event event);

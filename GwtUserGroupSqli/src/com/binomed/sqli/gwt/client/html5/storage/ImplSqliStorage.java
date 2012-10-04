@@ -16,10 +16,17 @@ import com.google.api.gwt.services.calendar.shared.model.EventReminders;
 import com.google.gwt.storage.client.Storage;
 import com.google.web.bindery.autobean.shared.AutoBean.PropertyName;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class ImplSqliStorage implements ISqliStorage {
 
 	private final Storage stockStore;
 
+	/*
+	 * Key definitions
+	 */
 	private static final String KEY_USER_LOGIN = "login";
 	private static final String KEY_USER_FIRST_NAME = "firstName";
 	private static final String KEY_USER_LAST_NAME = "lastName";
@@ -197,6 +204,11 @@ public class ImplSqliStorage implements ISqliStorage {
 		}
 		return result;
 	}
+
+	/*
+	 * 
+	 * Overrides CLass For management in the application
+	 */
 
 	static class SqliEvent implements Event {
 

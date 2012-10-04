@@ -4,6 +4,9 @@ import com.binomed.sqli.gwt.client.event.BeanEvent;
 import com.binomed.sqli.gwt.client.handler.ui.MessageHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
+/**
+ * @author jfgarreau Event with a message to show
+ */
 public class MessageEvent extends BeanEvent<String, MessageHandler> {
 
 	public static GwtEvent.Type<MessageHandler> TYPE = new Type<MessageHandler>();

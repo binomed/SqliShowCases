@@ -5,6 +5,9 @@ import com.binomed.sqli.gwt.client.handler.workflow.UserConnectedHandler;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.gwt.event.shared.GwtEvent;
 
+/**
+ * @author jfgarreau Send each times the user is connect
+ */
 public class UserConnectedEvent extends BeanEvent<SqliUserProxy, UserConnectedHandler> {
 
 	public static GwtEvent.Type<UserConnectedHandler> TYPE = new Type<UserConnectedHandler>();

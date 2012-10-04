@@ -13,6 +13,9 @@ import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriv
 import com.google.web.bindery.requestfactory.shared.Receiver;
 import com.google.web.bindery.requestfactory.shared.ServerFailure;
 
+/**
+ * @author jfgarreau Driver linked to request Factory
+ */
 public class SqliUserDriver {
 
 	interface Driver extends RequestFactoryEditorDriver<SqliUserProxy, SqliUserEditor> {
@@ -26,7 +29,6 @@ public class SqliUserDriver {
 	Driver driver = GWT.create(Driver.class);
 
 	private final IClientFactory clientFactory;
-	private final SqliUserEditor editor;
 	private final SqliUserRequest context;
 	private final SqliUserProxy user;
 	private final boolean createMode;
@@ -40,7 +42,7 @@ public class SqliUserDriver {
 	public SqliUserDriver(IClientFactory clientFactory, SqliUserEditor editor, SqliUserProxy user) {
 		super();
 		this.clientFactory = clientFactory;
-		this.editor = editor;
+		// We have to save the context (request factory service) in order to do all operation with it
 		this.context = clientFactory.getRequestFactory().userRequest();
 		driver.initialize(clientFactory.getRequestFactory(), editor);
 		createMode = user == null;

@@ -25,15 +25,6 @@
 	</init-param>
 </servlet>
 
- <servlet>
-        <servlet-name>OpenIdServlet</servlet-name>
-        <servlet-class>com.binomed.sqli.gwt.server.OpenIdServlet</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>OpenIdServlet</servlet-name>
-        <url-pattern>/_ah/login_required</url-pattern>
-    </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>sqliServlet</servlet-name>

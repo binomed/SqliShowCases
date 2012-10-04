@@ -5,6 +5,11 @@ import com.binomed.sqli.gwt.client.handler.workflow.UserUpdateHandler;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
 import com.google.gwt.event.shared.GwtEvent;
 
+/**
+ * @author jfgarreau
+ * 
+ *         Send each times a user is update
+ */
 public class UserUpdateEvent extends BeanEvent<SqliUserProxy, UserUpdateHandler> {
 
 	public static GwtEvent.Type<UserUpdateHandler> TYPE = new Type<UserUpdateHandler>();

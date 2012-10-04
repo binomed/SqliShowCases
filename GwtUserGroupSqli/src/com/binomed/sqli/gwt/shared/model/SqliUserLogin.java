@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author jfgarreau
+ * 
+ *         Simple bean use in editor mecanism
+ */
 public class SqliUserLogin implements Serializable {
 
 	/* Fields */

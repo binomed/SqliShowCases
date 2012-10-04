@@ -25,6 +25,10 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.CalendarUtil;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class CalendarView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.CalendarActivity.Display //
 		, SelectionHandler<Appointment> //

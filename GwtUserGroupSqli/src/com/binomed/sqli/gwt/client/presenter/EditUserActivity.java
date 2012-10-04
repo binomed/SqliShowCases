@@ -14,8 +14,17 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class EditUserActivity implements Activity, EditUserPresenter {
 
+	/**
+	 * @author jfgarreau
+	 * 
+	 *         Interface for View
+	 */
 	public interface Display extends IsWidget {
 
 		FlowPanel getUserEditor();
@@ -53,7 +62,7 @@ public class EditUserActivity implements Activity, EditUserPresenter {
 		Display view = new EditUserView(this);
 		panel.setWidget(view);
 		// We define the editor and map it
-		SqliUserEditor editor = new SqliUserEditor(factory, this, true);
+		SqliUserEditor editor = new SqliUserEditor(this, true);
 		view.getUserEditor().add(editor);
 		driver = new SqliUserDriver(factory, editor, place.getUser());
 

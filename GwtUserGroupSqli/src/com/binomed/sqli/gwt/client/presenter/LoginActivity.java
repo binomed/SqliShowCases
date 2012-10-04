@@ -28,11 +28,20 @@ import com.google.web.bindery.requestfactory.shared.Receiver;
 import com.google.web.bindery.requestfactory.shared.Request;
 import com.google.web.bindery.requestfactory.shared.ServerFailure;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class LoginActivity implements Activity //
 		, LoginPresenter //
 		, UserDisconnectedHandler //
 {
 
+	/**
+	 * @author jfgarreau
+	 * 
+	 *         Interface for View
+	 */
 	public interface Display extends IsWidget {
 
 		FlowPanel getUserEditor();
@@ -71,7 +80,7 @@ public class LoginActivity implements Activity //
 		Display view = new LoginView(this);
 		panel.setWidget(view);
 		// We define the editor and map it
-		SimpleSqliUserEditor editor = new SimpleSqliUserEditor(factory, this);
+		SimpleSqliUserEditor editor = new SimpleSqliUserEditor(this);
 		view.getUserEditor().add(editor);
 		driver = new SimpleSqliUserDriver(factory, editor);
 

@@ -18,6 +18,11 @@ import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 
+/**
+ * @author jfgarreau
+ * 
+ *         Activity controler for routing the application
+ */
 public class AppAcitivityMapper implements ActivityMapper {
 
 	private static final Logger LOGGER = Logger.getLogger("AppActivityMapper");
@@ -35,6 +40,7 @@ public class AppAcitivityMapper implements ActivityMapper {
 		if (!(place instanceof EditUserPlace) //
 				&& !(place instanceof CreateUserPlace) //
 		) {
+			// Each time we go in a place, we save the last place in order to manage return from edit place
 			clientFactory.updatePlace(place);
 		}
 

@@ -9,6 +9,10 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class LoginView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.LoginActivity.Display //
 		, IsWidget//
@@ -27,6 +31,11 @@ public class LoginView extends Composite implements //
 		this.presenter = presenter;
 	}
 
+	@Override
+	public FlowPanel getUserEditor() {
+		return userEditor;
+	}
+
 	/*
 	 * Events Part
 	 */
@@ -36,11 +45,6 @@ public class LoginView extends Composite implements //
 
 	public Widget hasWidget() {
 		return this;
-	}
-
-	@Override
-	public FlowPanel getUserEditor() {
-		return userEditor;
 	}
 
 }

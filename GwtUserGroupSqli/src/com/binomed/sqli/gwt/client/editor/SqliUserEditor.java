@@ -1,6 +1,5 @@
 package com.binomed.sqli.gwt.client.editor;
 
-import com.binomed.sqli.gwt.client.IClientFactory;
 import com.binomed.sqli.gwt.client.presenter.itf.UserCrudPresenter;
 import com.binomed.sqli.gwt.client.resources.i18n.I18N;
 import com.binomed.sqli.gwt.shared.model.SqliUserProxy;
@@ -17,6 +16,9 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau Editor for sqliUserProxy
+ */
 public class SqliUserEditor extends Composite implements //
 		Editor<SqliUserProxy> //
 {
@@ -36,13 +38,11 @@ public class SqliUserEditor extends Composite implements //
 	@UiField
 	Button btnSave;
 
-	private final IClientFactory clientFacotry;
 	private final UserCrudPresenter presenter;
 
-	public SqliUserEditor(IClientFactory clientFactory, UserCrudPresenter presenter, boolean edit) {
+	public SqliUserEditor(UserCrudPresenter presenter, boolean edit) {
 		// Initialization
 		initWidget(uiBinder.createAndBindUi(this));
-		this.clientFacotry = clientFactory;
 		this.presenter = presenter;
 		btnSave.setText(edit ? I18N.instance.createBtnSave() : I18N.instance.createBtnCreate());
 	}

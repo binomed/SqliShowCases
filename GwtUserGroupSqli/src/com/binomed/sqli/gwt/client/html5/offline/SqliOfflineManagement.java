@@ -5,25 +5,18 @@ import com.binomed.sqli.gwt.client.event.ui.ConnectionEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class SqliOfflineManagement {
 
 	private static boolean first = true;
 	private static boolean onLine;
 
-	public static native void registerOffLine()/*-{
-
-		$wnd.alert('Register');
-		$wnd.addEventListener('online', function(e) {
-			$wnd.alert('Online');
-		}, false);
-		$wnd.addEventListener('offline', function(e) {
-			$wnd.alert('Offline');
-
-		}, false);
-	}-*/;
-
 	public static void checkConnection(final IClientFactory factory) {
 
+		// Simple ping done every 5 sec
 		Timer timer = new Timer() {
 
 			@Override

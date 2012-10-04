@@ -8,6 +8,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class EditUserView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.EditUserActivity.Display //
 {
@@ -40,10 +44,5 @@ public class EditUserView extends Composite implements //
 	public Widget hasWidget() {
 		return this;
 	}
-
-	// @UiHandler("formUser")
-	// public void onFormSubmit(SubmitEvent event) {
-	// presenter.formSubmit();
-	// }
 
 }

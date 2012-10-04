@@ -53,6 +53,10 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class ClientFactory implements IClientFactory //
 		, UserDisconnectedHandler //
 		, UserConnectedHandler //
@@ -74,7 +78,7 @@ public class ClientFactory implements IClientFactory //
 	private static final String CALENDAR_ID = "d67t1n4ijavur1igfo6ramp1ds@group.calendar.google.com";
 	private static final String CLIENT_ID_LOCAL = "505522129937-slrkasjdeoicotmtipcmdeg479sbucb9.apps.googleusercontent.com";
 	private static final String CLIENT_ID_APPENGINE = "505522129937.apps.googleusercontent.com";
-	private final String CLIENT_ID = CLIENT_ID_APPENGINE;
+	private final String CLIENT_ID;
 	private static final String API_KEY = "AIzaSyACDYw9UQ6LewPFzGRmrzb50tWdf-h3MCw";
 	private static final String APPLICATION_NAME = "CalendarSample/1.0";
 	private static final Calendar calendar = GWT.create(Calendar.class);
@@ -119,39 +123,66 @@ public class ClientFactory implements IClientFactory //
 
 		SqliOfflineManagement.checkConnection(this);
 
-		// this.CLIENT_ID = LOCALHOST_URL.equals(com.google.gwt.core.client.GWT.getHostPageBaseURL()) ? CLIENT_ID_LOCAL : CLIENT_ID_APPENGINE;
+		// Management of google keys according to host
+		this.CLIENT_ID = LOCALHOST_URL.equals(com.google.gwt.core.client.GWT.getHostPageBaseURL()) ? CLIENT_ID_LOCAL : CLIENT_ID_APPENGINE;
 
 	}
 
-	public EventBus getEventBusHandler() {
-		return eventBus;
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getService()
+	 */
 	@Override
 	public SqliServiceAsync getService() {
 		return rpcService;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getPlaceControler()
+	 */
 	@Override
 	public PlaceController getPlaceControler() {
 		return placeControler;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#registerMainPanel(com.google.gwt.user.client.ui.AcceptsOneWidget)
+	 */
 	@Override
 	public void registerMainPanel(AcceptsOneWidget mainPanel) {
 		activityManager.setDisplay(mainPanel);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getRequestFactory()
+	 */
 	@Override
 	public SqliRequestFactory getRequestFactory() {
 		return requestFactory;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getEventBus()
+	 */
 	@Override
 	public EventBus getEventBus() {
 		return eventBus;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getListEvents(int, int, com.google.web.bindery.requestfactory.shared.Receiver)
+	 */
 	@Override
 	public void getListEvents(int start, int number, Receiver<Events> callBack) {
 		calendar.events().list(CALENDAR_ID) //
@@ -170,49 +201,92 @@ public class ClientFactory implements IClientFactory //
 				callBack);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getEventDetails(java.lang.String, com.google.web.bindery.requestfactory.shared.Receiver)
+	 */
 	@Override
 	public void getEventDetails(String eventId, Receiver<Event> callBack) {
 		calendar.events().get(CALENDAR_ID, eventId).fire(callBack);
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getConnectedUser()
+	 */
 	@Override
 	public SqliUserProxy getConnectedUser() {
 		return userConected;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.handler.workflow.UserConnectedHandler#userConnected(com.binomed.sqli.gwt.shared.model.SqliUserProxy, boolean)
+	 */
 	@Override
 	public void userConnected(SqliUserProxy user, boolean onLine) {
 		this.userConected = user;
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.handler.workflow.UserDisconnectedHandler#userDisconnected()
+	 */
 	@Override
 	public void userDisconnected() {
 		this.userConected = null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getCurrentPlace()
+	 */
 	@Override
 	public Place getCurrentPlace() {
 		return place;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#updatePlace(com.google.gwt.place.shared.Place)
+	 */
 	@Override
 	public void updatePlace(Place place) {
 		this.place = place;
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#addEventToCalendar(com.google.api.gwt.services.calendar.shared.model.Event)
+	 */
 	@Override
 	public void addEventToCalendar(final Event event) {
+		// We log the user with OAuth2
 		login(new Callback<Void, Exception>() {
 
 			@Override
 			public void onSuccess(Void result) {
+				// We list the calendars of user in order to see which one we want to add the event
 				calendar.calendarList().list().setMinAccessRole(MinAccessRole.WRITER).fire(new Receiver<CalendarList>() {
 
+					/*
+					 * (non-Javadoc)
+					 * 
+					 * @see com.google.web.bindery.requestfactory.shared.Receiver#onSuccess(java.lang.Object)
+					 */
 					@Override
 					public void onSuccess(CalendarList response) {
+						// We create the modal Dialog
 						final Modal modal = new Modal(true);
 						modal.setTitle(I18N.instance.calendarChoose());
 						final ListBox list = new ListBox(false);
@@ -228,6 +302,7 @@ public class ClientFactory implements IClientFactory //
 
 							@Override
 							public void onClick(ClickEvent clickEvent) {
+								// When the user chosse the calendar we add it in it's calendar
 								if (StringUtils.isNotEmpty(list.getValue())) {
 									EventsContext eventContext = calendar.events();
 									Event newEvent = eventContext.create(Event.class);
@@ -259,6 +334,9 @@ public class ClientFactory implements IClientFactory //
 
 			}
 
+			/**
+			 * @param reason
+			 */
 			@Override
 			public void onFailure(Exception reason) {
 				eventBus.fireEvent(new MessageEvent(I18N.instance.calendarMissingAuthorisation(), true));
@@ -268,16 +346,31 @@ public class ClientFactory implements IClientFactory //
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#getAppStorage()
+	 */
 	@Override
 	public ISqliStorage getAppStorage() {
 		return this.sqliStorage;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.IClientFactory#isConnect()
+	 */
 	@Override
 	public boolean isConnect() {
 		return connected;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.binomed.sqli.gwt.client.handler.ui.ConnectionHandler#onChangeConnection(boolean)
+	 */
 	@Override
 	public void onChangeConnection(boolean onLine) {
 		connected = onLine;

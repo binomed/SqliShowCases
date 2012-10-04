@@ -21,6 +21,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class HomeView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.HomeActivity.Display //
 		, HiddenHandler //
@@ -88,11 +92,6 @@ public class HomeView extends Composite implements //
 	public void onBrandClick(ClickEvent event) {
 		presenter.brandClick();
 	}
-
-	// @UiHandler("logOpenId")
-	// public void onOpenIdClick(ClickEvent event) {
-	// presenter.openId();
-	// }
 
 	@UiHandler("userEdit")
 	public void onUserEdit(ClickEvent event) {

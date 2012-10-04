@@ -4,6 +4,10 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 import com.google.gwt.place.shared.Prefix;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class AdminPlace extends Place {
 
 	public AdminPlace() {

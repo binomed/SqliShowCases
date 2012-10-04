@@ -9,6 +9,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class Speaker extends Composite {
 
 	private static SpeakerUiBinder uiBinder = GWT.create(SpeakerUiBinder.class);

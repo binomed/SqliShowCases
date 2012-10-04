@@ -21,10 +21,19 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 import com.google.web.bindery.requestfactory.shared.ServerFailure;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class CalendarActivity implements Activity, CalendarPresenter {
 
 	private static final Logger LOGGER = Logger.getLogger("CalendarActivity");
 
+	/**
+	 * @author jfgarreau
+	 * 
+	 *         Interface for View
+	 */
 	public interface Display extends IsWidget {
 		void addEvent(Event event);
 

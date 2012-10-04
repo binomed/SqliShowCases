@@ -36,6 +36,10 @@ import com.google.maps.gwt.client.MapTypeId;
 import com.google.maps.gwt.client.Marker;
 import com.google.maps.gwt.client.MarkerOptions;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class EventView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.EventActivity.Display //
 {

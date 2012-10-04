@@ -9,6 +9,10 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * @author jfgarreau
+ * 
+ */
 public class CreateUserView extends Composite implements //
 		com.binomed.sqli.gwt.client.presenter.CreateUserActivity.Display //
 		, IsWidget//
@@ -31,6 +35,7 @@ public class CreateUserView extends Composite implements //
 	 * Events Part
 	 */
 
+	@Override
 	public FlowPanel getUserEditor() {
 		return userEditor;
 	}
@@ -41,10 +46,5 @@ public class CreateUserView extends Composite implements //
 	public Widget hasWidget() {
 		return this;
 	}
-
-	// @UiHandler("formUser")
-	// public void onFormSubmit(SubmitEvent event) {
-	// presenter.formSubmit();
-	// }
 
 }
